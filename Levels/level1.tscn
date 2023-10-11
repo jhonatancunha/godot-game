@@ -118,6 +118,7 @@ motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(1280, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(2, 0)
 texture = ExtResource("2_fm5hr")
 centered = false
 
@@ -141,10 +142,9 @@ remote_path = NodePath("../../Camera2D")
 position = Vector2(292, 530)
 scale = Vector2(1.5, 1.5)
 
-[node name="Enemy" parent="." instance=ExtResource("3_wwq43")]
+[node name="Enemy" parent="." groups=["enemy"] instance=ExtResource("3_wwq43")]
 modulate = Color(0.941176, 0, 0.0745098, 1)
 position = Vector2(723, 384)
 scale = Vector2(1.72, 1.69711)
 collision_layer = 2
 collision_mask = 2
-speed = 80.0

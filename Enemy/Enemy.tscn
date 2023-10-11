@@ -4,18 +4,25 @@
 [ext_resource type="Texture2D" uid="uid://6t8righ6dwh2" path="res://Enemy/enemy.png" id="1_rlmk2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spikd"]
-size = Vector2(16, 32)
+size = Vector2(16, 42.7442)
 
-[node name="Enemy" type="CharacterBody2D"]
-scale = Vector2(1.72, 1.72)
+[node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_68x04")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1, 2)
+position = Vector2(0, -5.3721)
+scale = Vector2(1, 2.67151)
 texture = ExtResource("1_rlmk2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5.23256)
 shape = SubResource("RectangleShape2D_spikd")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(-9.88372, -26)
+
+[node name="EnemyArea2D" type="Area2D" parent="." groups=["enemy"]]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="EnemyArea2D"]
+position = Vector2(0, -5.23256)
+shape = SubResource("RectangleShape2D_spikd")

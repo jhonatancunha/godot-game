@@ -2,8 +2,8 @@ class_name Enemy
 extends CharacterBody2D
 
 
-@export var speed: float = 300.0
-
+@export var speed: float = 100.0
+@export var health: int = 3
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -26,3 +26,10 @@ func detect_turn_around():
 	if not $RayCast2D.is_colliding() and is_on_floor():
 		is_moving_left = !is_moving_left
 		scale.x = -scale.x
+		
+		
+func take_damage():
+	health -= 1
+	
+	if health <= 0:
+		queue_free()
