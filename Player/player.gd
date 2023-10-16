@@ -8,6 +8,13 @@ extends CharacterBody2D
 @export var can_fire: bool = true
 @export var can_punch: bool = true
 
+#FIRE
+@export var bullet_speed: float = 400
+@export var fire_delay: float = 0.10
+var _can_fire: bool = true
+@onready var _bullet_res: Resource = preload("res://Bullet/bullet.tscn")
+
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var already_did_double_jump: bool = false
@@ -63,10 +70,13 @@ func _process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("right"):
 		$PunchArea2D/Colision.position.x = abs($PunchArea2D/Colision.position.x)
+		$Marker2D.position.x = 27
 	
 	if Input.is_action_just_pressed("left"):
 		$PunchArea2D/Colision.position.x = -abs($PunchArea2D/Colision.position.x)
-	
+		$Marker2D.position.x = -27
+		
+		
 	if direction:
 		velocity.x = direction * speed
 	else:
@@ -89,6 +99,7 @@ func _process(delta: float) -> void:
 		else:
 			$AnimationPlayer.play("idle_shot")
 			
+		_fire_bullet(sprite.flip_h)
 		await $AnimationPlayer.animation_finished
 		can_idle = true
 
@@ -97,3 +108,19 @@ func _process(delta: float) -> void:
 func _on_punch_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
 		area.get_parent().take_damage()
+
+
+func _fire_bullet(dir):
+	if not can_fire:
+		return
+	if not _can_fire:
+		return
+	
+	var bullet: Sprite2D = _bullet_res.instantiate()
+	bullet.init(dir, bullet_speed)
+	bullet.position = $Marker2D.global_position
+	get_tree().get_root().add_child(bullet)
+	
+	_can_fire = false
+	await get_tree().create_timer(fire_delay).timeout
+	_can_fire = true
