@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var double_jump_velocity: float = -300
 @export var can_double_jump: bool = true
 @export var can_fire: bool = true
+@export var can_punch: bool = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -74,14 +75,14 @@ func _process(delta: float) -> void:
 	move_and_slide()
 	
 	# SOCO
-	if Input.is_action_just_pressed("punch"):
+	if Input.is_action_just_pressed("punch") and can_punch:
 		can_idle = false
 		$AnimationPlayer.play("punch")
 		await $AnimationPlayer.animation_finished
 		can_idle = true
 
 	# TIRO
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_just_pressed("fire") and can_fire:
 		can_idle =  false
 		if is_walking:
 			$AnimationPlayer.play("shot_gun_run")
