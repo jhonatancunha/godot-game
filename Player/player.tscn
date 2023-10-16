@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://blx3wb41bsdr7"]
+[gd_scene load_steps=13 format=3 uid="uid://blx3wb41bsdr7"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_8skvs"]
 [ext_resource type="Texture2D" uid="uid://btt2056o0vn2k" path="res://Player/player_movements.png" id="2_4dlf7"]
@@ -95,12 +95,64 @@ tracks/0/keys = {
 "values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1), Vector2i(6, 1), Vector2i(7, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_j1382"]
+resource_name = "walk_gun"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3), Vector2i(5, 3), Vector2i(6, 3), Vector2i(7, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_imoi8"]
+resource_name = "shot_gun_run"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(2, 4), Vector2i(3, 4), Vector2i(4, 4), Vector2i(5, 4), Vector2i(6, 4), Vector2i(7, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_0n5di"]
+resource_name = "idle_shot"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_krh22"]
 _data = {
 "RESET": SubResource("Animation_3nca2"),
 "idle": SubResource("Animation_jx8cb"),
+"idle_shot": SubResource("Animation_0n5di"),
 "punch": SubResource("Animation_1b41r"),
-"walk": SubResource("Animation_k7no5")
+"shot_gun_run": SubResource("Animation_imoi8"),
+"walk": SubResource("Animation_k7no5"),
+"walk_gun": SubResource("Animation_j1382")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m26sl"]
@@ -119,7 +171,7 @@ position = Vector2(-2, -4)
 scale = Vector2(1.85938, 1.85938)
 texture = ExtResource("2_4dlf7")
 hframes = 10
-vframes = 3
+vframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

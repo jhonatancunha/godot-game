@@ -5,11 +5,13 @@ extends CharacterBody2D
 @export var jump_velocity: float = -300.0
 @export var double_jump_velocity: float = -300
 @export var can_double_jump: bool = true
+@export var can_fire: bool = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var already_did_double_jump: bool = false
 var can_idle = true
+var is_walking = true
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var sprite = $Sprite2D
@@ -19,9 +21,14 @@ func update_animation(direction):
 	if is_on_floor():
 		if can_idle:
 			if direction == 0:
+				is_walking = false
 				animationPlayer.play("idle")
 			else:
-				animationPlayer.play("walk")
+				is_walking = true
+				if can_fire:
+					animationPlayer.play("walk_gun")
+				else:
+					animationPlayer.play("walk")
 
 func _ready() -> void:
 	pass
@@ -66,9 +73,21 @@ func _process(delta: float) -> void:
 
 	move_and_slide()
 	
+	# SOCO
 	if Input.is_action_just_pressed("punch"):
 		can_idle = false
 		$AnimationPlayer.play("punch")
+		await $AnimationPlayer.animation_finished
+		can_idle = true
+
+	# TIRO
+	if Input.is_action_just_pressed("fire"):
+		can_idle =  false
+		if is_walking:
+			$AnimationPlayer.play("shot_gun_run")
+		else:
+			$AnimationPlayer.play("idle_shot")
+			
 		await $AnimationPlayer.animation_finished
 		can_idle = true
 
