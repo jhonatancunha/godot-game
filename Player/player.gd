@@ -1,12 +1,11 @@
 extends CharacterBody2D
 
 
-@export var speed: float = 200.0
+@export var speed: float = 250.0
 @export var jump_velocity: float = -300.0
-@export var double_jump_velocity: float = -300
-@export var can_double_jump: bool = true
 @export var can_fire: bool = true
 @export var can_punch: bool = true
+@export var MAX_JUMPS: int = 2
 
 #FIRE
 @export var bullet_speed: float = 400
@@ -17,7 +16,8 @@ var _can_fire: bool = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
-var already_did_double_jump: bool = false
+var _qtd_jumps = 1;
+var _can_jump = true;
 var can_idle = true
 var is_walking = true
 
@@ -45,17 +45,20 @@ func _process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		if _qtd_jumps > MAX_JUMPS:
+			_can_jump = false
 	else:
-		already_did_double_jump = false
-		
+		_qtd_jumps = 1
+		_can_jump = true
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = jump_velocity
-		elif not already_did_double_jump and can_double_jump:
-			velocity.y = double_jump_velocity
-			already_did_double_jump = true
+		elif _qtd_jumps < MAX_JUMPS and _can_jump:
+			_qtd_jumps += 1
+			velocity.y = jump_velocity
+			
 			
 	
 
@@ -124,3 +127,7 @@ func _fire_bullet(dir):
 	_can_fire = false
 	await get_tree().create_timer(fire_delay).timeout
 	_can_fire = true
+
+
+func die():
+	get_tree().reload_current_scene()
