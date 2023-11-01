@@ -9,7 +9,8 @@ extends CharacterBody2D
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_moving_left: bool = true
 
-
+# knockback amount when get damage
+var knockback_distance = 40
 
 func _process(delta: float) -> void:
 	move_enemy(delta)
@@ -33,3 +34,12 @@ func take_damage():
 	
 	if health <= 0:
 		queue_free()
+	else:
+		if is_moving_left:
+			position.x += knockback_distance
+		else:
+			position.x -= knockback_distance
+
+func _on_Player_body_entered(body: Node) -> void:
+	if body.is_in_group("player") and not body.is_attacking:
+		body.take_damage()

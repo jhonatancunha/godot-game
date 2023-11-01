@@ -158,7 +158,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m26sl"]
 size = Vector2(25, 20)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_8skvs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

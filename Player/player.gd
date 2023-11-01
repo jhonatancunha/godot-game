@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 
@@ -20,6 +21,8 @@ var _qtd_jumps = 1;
 var _can_jump = true;
 var can_idle = true
 var is_walking = true
+var is_attacking: bool = false
+var health: int = 100  # ou qualquer valor inicial de saúde
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var sprite = $Sprite2D
@@ -131,3 +134,15 @@ func _fire_bullet(dir):
 
 func die():
 	get_tree().reload_current_scene()
+
+func take_damage():
+	if not is_attacking:
+		health -= 1
+		print("damage")
+	if health <= 0:
+		die()
+		# Lógica adicional de tratamento de dano, como verificar se a saúde é menor ou igual a zero e chamar a função die()
+
+func _on_Player_body_entered(body: Node) -> void:
+	if body.is_in_group("enemy"):
+		take_damage()
