@@ -22,7 +22,7 @@ var _can_jump = true;
 var can_idle = true
 var is_walking = true
 var is_attacking: bool = false
-var health: int = 100  # ou qualquer valor inicial de saúde
+var health: int = 3  # ou qualquer valor inicial de saúde
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var sprite = $Sprite2D
@@ -141,8 +141,11 @@ func take_damage():
 		print("damage")
 	if health <= 0:
 		die()
-		# Lógica adicional de tratamento de dano, como verificar se a saúde é menor ou igual a zero e chamar a função die()
+		
 
-func _on_Player_body_entered(body: Node) -> void:
-	if body.is_in_group("enemy"):
+
+func _on_damage_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("attack_area"):
+		print("TOMOU DANO")
+		print(health)
 		take_damage()

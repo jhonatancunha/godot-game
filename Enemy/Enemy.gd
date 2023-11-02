@@ -10,7 +10,7 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_moving_left: bool = true
 
 # knockback amount when get damage
-var knockback_distance = 40
+var knockback_distance = 60
 
 func _process(delta: float) -> void:
 	move_enemy(delta)
@@ -40,6 +40,3 @@ func take_damage():
 		else:
 			position.x -= knockback_distance
 
-func _on_Player_body_entered(body: Node) -> void:
-	if body.is_in_group("player") and not body.is_attacking:
-		body.take_damage()

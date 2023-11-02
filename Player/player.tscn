@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://blx3wb41bsdr7"]
+[gd_scene load_steps=14 format=3 uid="uid://blx3wb41bsdr7"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_8skvs"]
 [ext_resource type="Texture2D" uid="uid://btt2056o0vn2k" path="res://Player/player_movements.png" id="2_4dlf7"]
@@ -158,6 +158,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m26sl"]
 size = Vector2(25, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtu4q"]
+size = Vector2(29, 54)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_8skvs")
 
@@ -188,4 +191,11 @@ disabled = true
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(27, -17)
 
+[node name="DamageArea2D" type="Area2D" parent="." groups=["damage_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea2D"]
+position = Vector2(-2.5, -2)
+shape = SubResource("RectangleShape2D_qtu4q")
+
 [connection signal="area_entered" from="PunchArea2D" to="." method="_on_punch_area_2d_area_entered"]
+[connection signal="area_entered" from="DamageArea2D" to="." method="_on_damage_area_2d_area_entered"]
