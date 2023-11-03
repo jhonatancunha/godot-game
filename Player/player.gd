@@ -22,7 +22,7 @@ var _can_jump = true;
 var can_idle = true
 var is_walking = true
 var is_attacking: bool = false
-var health: int = 3  # ou qualquer valor inicial de saúde
+var health: int = 3
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var sprite = $Sprite2D
@@ -144,8 +144,8 @@ func take_damage():
 		
 
 
-func _on_damage_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("attack_area"):
-		print("TOMOU DANO")
-		print(health)
-		take_damage()
+#func _on_damage_area_2d_area_entered(area: Area2D) -> void:
+#	if area.is_in_group("attack_area"):
+#		print("TOMOU DANO")
+#		print(health)
+#		take_damage()

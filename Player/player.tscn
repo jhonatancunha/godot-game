@@ -20,18 +20,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [Vector2i(0, 0)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PunchArea2D/Colision:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_jx8cb"]
 resource_name = "idle"
@@ -159,7 +147,7 @@ _data = {
 size = Vector2(25, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtu4q"]
-size = Vector2(29, 54)
+size = Vector2(27, 35)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_8skvs")
@@ -191,11 +179,11 @@ disabled = true
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(27, -17)
 
-[node name="DamageArea2D" type="Area2D" parent="." groups=["damage_area"]]
+[node name="damage_area_2D" type="Area2D" parent="." groups=["damage_area"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea2D"]
-position = Vector2(-2.5, -2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_area_2D"]
+position = Vector2(-3.5, 7.5)
 shape = SubResource("RectangleShape2D_qtu4q")
 
 [connection signal="area_entered" from="PunchArea2D" to="." method="_on_punch_area_2d_area_entered"]
-[connection signal="area_entered" from="DamageArea2D" to="." method="_on_damage_area_2d_area_entered"]
+[connection signal="area_entered" from="damage_area_2D" to="." method="_on_damage_area_2d_area_entered"]
