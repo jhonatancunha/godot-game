@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 
 @export var speed: float = 100.0
-@export var health: int = 3
+@export var health: int = 6
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var sprite = $Sprite2D
