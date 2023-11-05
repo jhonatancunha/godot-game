@@ -150,6 +150,7 @@ size = Vector2(25, 20)
 size = Vector2(27, 35)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
 script = ExtResource("1_8skvs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

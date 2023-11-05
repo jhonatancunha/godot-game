@@ -23,6 +23,7 @@ var can_idle = true
 var is_walking = true
 var is_attacking: bool = false
 var health: int = 3
+var is_moving_left: bool = true
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var sprite = $Sprite2D
@@ -61,11 +62,7 @@ func _process(delta: float) -> void:
 		elif _qtd_jumps < MAX_JUMPS and _can_jump:
 			_qtd_jumps += 1
 			velocity.y = jump_velocity
-			
-			
-	
 
-	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
@@ -75,10 +72,12 @@ func _process(delta: float) -> void:
 		
 		
 	if Input.is_action_just_pressed("right"):
+		is_moving_left = false
 		$PunchArea2D/Colision.position.x = abs($PunchArea2D/Colision.position.x)
 		$Marker2D.position.x = 27
 	
 	if Input.is_action_just_pressed("left"):
+		is_moving_left = true
 		$PunchArea2D/Colision.position.x = -abs($PunchArea2D/Colision.position.x)
 		$Marker2D.position.x = -27
 		
@@ -115,7 +114,6 @@ func _on_punch_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
 		area.get_parent().take_damage()
 
-
 func _fire_bullet(dir):
 	if not can_fire:
 		return
@@ -141,11 +139,7 @@ func take_damage():
 		print("damage")
 	if health <= 0:
 		die()
-		
 
-
-#func _on_damage_area_2d_area_entered(area: Area2D) -> void:
-#	if area.is_in_group("attack_area"):
-#		print("TOMOU DANO")
-#		print(health)
-#		take_damage()
+func increase_health():
+	health += 3
+	print("AUMENTOU HEALTH ", health)
