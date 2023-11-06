@@ -144,7 +144,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0hxh"]
-size = Vector2(26, 64.75)
+size = Vector2(25, 26.125)
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_68x04")
@@ -179,7 +179,9 @@ shape = SubResource("RectangleShape2D_spikd")
 [node name="AttackArea2D" type="Area2D" parent="." groups=["attack_area"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea2D"]
-position = Vector2(-9, -16.375)
+position = Vector2(-0.5, -20.5)
+rotation = -3.14159
+scale = Vector2(1, -0.421053)
 shape = SubResource("RectangleShape2D_j0hxh")
 
 [connection signal="area_entered" from="AttackArea2D" to="." method="_on_attack_area_2d_area_entered"]
