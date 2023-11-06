@@ -14,6 +14,7 @@ var can_idle = true
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_moving_left: bool = true
 var is_walking = true
+var is_punching = false
 
 # knockback amount when get damage
 var knockback_distance = 60
@@ -32,14 +33,15 @@ func move_enemy(delta: float) -> void:
 func update_animation():
 	if is_on_floor():
 		if can_idle:
-			if not is_walking:
+			if not is_walking and not is_punching:
 				animationPlayer.play("idle")
 			else:
-				if is_moving_left:
-					sprite.flip_h = 1
-				else:
-					sprite.flip_h = -1
-				animationPlayer.play("walk")
+				if not is_punching:
+					if is_moving_left:
+						sprite.flip_h = 1
+					else:
+						sprite.flip_h = -1
+					animationPlayer.play("walk")
 
 func detect_turn_around():
 	if not $RayCast2D.is_colliding() and is_on_floor():
@@ -66,4 +68,7 @@ func _on_attack_area_2d_area_entered(area: Area2D) -> void:
 		print("TOMOU DANO")
 		print(health)
 		area.get_parent().take_damage()
+		is_punching = true
 		animationPlayer.play("punch")
+		await animationPlayer.animation_finished
+		is_punching = false
