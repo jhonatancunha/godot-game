@@ -7,6 +7,7 @@
 size = Vector2(5.65875, 11.2622)
 
 [node name="Spike" type="Area2D"]
+modulate = Color(0, 0, 0, 1)
 script = ExtResource("1_wabqp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
