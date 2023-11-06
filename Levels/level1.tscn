@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dofuiaen7drac"]
+[gd_scene load_steps=14 format=3 uid="uid://dofuiaen7drac"]
 
 [ext_resource type="PackedScene" uid="uid://blx3wb41bsdr7" path="res://Player/player.tscn" id="2_7myil"]
 [ext_resource type="Texture2D" uid="uid://swvlj4rv8128" path="res://Assets/sky.png" id="2_fm5hr"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cr07u451dalw0" path="res://Traps/Spike/spike.tscn" id="6_2yeux"]
 [ext_resource type="PackedScene" uid="uid://c8hnlsk5h60yf" path="res://Terrain/MovingPlatform/MovingPlatform.tscn" id="7_ns7om"]
 [ext_resource type="PackedScene" uid="uid://btopemn7cld2t" path="res://ItemBox/item_box.tscn" id="9_27u8p"]
+[ext_resource type="PackedScene" uid="uid://c3ilfe2qoeq7h" path="res://UI/MobileInput/ButtonA.tscn" id="10_cbs0k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_igheu"]
 texture = ExtResource("2_ybt7t")
@@ -131,6 +132,79 @@ sources/2 = SubResource("TileSetAtlasSource_lmjku")
 
 [node name="World" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Buttons" type="Node2D" parent="CanvasLayer"]
+
+[node name="Shot" parent="CanvasLayer/Buttons" instance=ExtResource("10_cbs0k")]
+position = Vector2(1048, 672)
+button_action = "fire"
+
+[node name="AtirarLabel" type="Label" parent="CanvasLayer/Buttons/Shot"]
+offset_left = -8.0
+offset_top = -23.9999
+offset_right = 65.0
+offset_bottom = 2.00006
+text = "Atirar"
+
+[node name="Punch" parent="CanvasLayer/Buttons" instance=ExtResource("10_cbs0k")]
+position = Vector2(1208, 672)
+button_action = "punch"
+
+[node name="SocarLabel" type="Label" parent="CanvasLayer/Buttons/Punch"]
+offset_top = -24.0001
+offset_right = 73.0
+offset_bottom = 1.99994
+text = "Socar"
+
+[node name="Jump" parent="CanvasLayer/Buttons" instance=ExtResource("10_cbs0k")]
+position = Vector2(1128, 672)
+button_action = "jump"
+
+[node name="PularLabel" type="Label" parent="CanvasLayer/Buttons/Jump"]
+offset_top = -23.9999
+offset_right = 73.0
+offset_bottom = 2.00006
+text = "Pular"
+
+[node name="Right" parent="CanvasLayer/Buttons" instance=ExtResource("10_cbs0k")]
+position = Vector2(128, 664)
+button_action = "right"
+
+[node name="DireitaLabel" type="Label" parent="CanvasLayer/Buttons/Right"]
+offset_left = -8.0
+offset_top = -24.0
+offset_right = 45.0
+offset_bottom = 2.0
+text = "Direita"
+
+[node name="Left" parent="CanvasLayer/Buttons" instance=ExtResource("10_cbs0k")]
+position = Vector2(40, 664)
+button_action = "left"
+
+[node name="EsquerdaLabel" type="Label" parent="CanvasLayer/Buttons/Left"]
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 49.0
+offset_bottom = 2.0
+text = "Esquerda"
+
+[node name="GUI" type="Node2D" parent="CanvasLayer"]
+
+[node name="LEVEL" type="Label" parent="CanvasLayer/GUI"]
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 82.0
+offset_bottom = 42.0
+text = "Level: 1"
+
+[node name="HP" type="Label" parent="CanvasLayer/GUI"]
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 82.0
+offset_bottom = 74.0
+text = "HP: 100"
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -138,7 +212,8 @@ motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(1280, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
-position = Vector2(5, -1)
+position = Vector2(-8, -8)
+scale = Vector2(2, 1)
 texture = ExtResource("2_fm5hr")
 centered = false
 

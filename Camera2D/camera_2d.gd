@@ -8,7 +8,7 @@ func _auto_set_limits():
 		if tilemap is TileMap:
 			var used = tilemap.get_used_rect()
 			
-			limit_left = used.position.x * tilemap.tile_set.tile_size.x
+			limit_left = used.position.x * tilemap.tile_set.tile_size.x + 20
 			limit_right = used.end.x * tilemap.tile_set.tile_size.x
 			limit_bottom = used.end.y * tilemap.tile_set.tile_size.y
 			

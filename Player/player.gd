@@ -10,7 +10,7 @@ extends CharacterBody2D
 
 #FIRE
 @export var bullet_speed: float = 400
-@export var fire_delay: float = 0.10
+@export var fire_delay: float = 0.5
 var _can_fire: bool = true
 @onready var _bullet_res: Resource = preload("res://Bullet/bullet.tscn")
 
