@@ -91,13 +91,17 @@ func _process(delta: float) -> void:
 	
 	# SOCO
 	if Input.is_action_just_pressed("punch") and can_punch:
+		is_attacking = true
 		can_idle = false
 		$AnimationPlayer.play("punch")
 		await $AnimationPlayer.animation_finished
 		can_idle = true
+		is_attacking = false
+			
 
 	# TIRO
 	if Input.is_action_just_pressed("fire") and can_fire:
+		is_attacking = true
 		can_idle =  false
 		if is_walking:
 			$AnimationPlayer.play("shot_gun_run")
@@ -107,6 +111,7 @@ func _process(delta: float) -> void:
 		_fire_bullet(sprite.flip_h)
 		await $AnimationPlayer.animation_finished
 		can_idle = true
+		is_attacking = false
 
 	update_animation(direction)
 
