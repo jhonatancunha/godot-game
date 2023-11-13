@@ -48,6 +48,7 @@ _data = {
 [node name="Platform" type="AnimatableBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform"]
+modulate = Color(0, 0, 0, 1)
 texture = ExtResource("1_plgio")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
