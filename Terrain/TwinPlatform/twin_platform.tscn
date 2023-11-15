@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c164gvrbpp655"]
+
+[ext_resource type="Script" path="res://Terrain/TwinPlatform/platform_tween_init.gd" id="1_mpege"]
+[ext_resource type="Script" path="res://Terrain/TwinPlatform/twin_platform.gd" id="1_ofnec"]
+[ext_resource type="Texture2D" uid="uid://clbxvsu8cx4wv" path="res://Terrain/TwinPlatform/platform.png" id="1_s6v0a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjgnc"]
+size = Vector2(43, 8)
+
+[node name="PlatformTween" type="Node2D"]
+modulate = Color(0, 0, 0, 1)
+script = ExtResource("1_mpege")
+
+[node name="Block" type="CharacterBody2D" parent="."]
+script = ExtResource("1_ofnec")
+
+[node name="Sprite2D" type="Sprite2D" parent="Block"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_s6v0a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_sjgnc")
+
+[node name="Path" type="Node2D" parent="."]
+
+[node name="Start" type="Marker2D" parent="Path"]
+
+[node name="Final" type="Marker2D" parent="Path"]
+position = Vector2(83, 0)

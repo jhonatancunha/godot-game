@@ -1,51 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8hnlsk5h60yf"]
+[gd_scene load_steps=4 format=3 uid="uid://c8hnlsk5h60yf"]
 
+[ext_resource type="Script" path="res://Terrain/MovingPlatform/MovingPlatform.gd" id="1_06dta"]
 [ext_resource type="Texture2D" uid="uid://bevbkv5pxywkj" path="res://Terrain/MovingPlatform/platform.png" id="1_plgio"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5jej"]
 size = Vector2(43, 6)
 
-[sub_resource type="Animation" id="Animation_fsorp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_k01tk"]
-resource_name = "move_loop"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(127, 0), Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_v3ik5"]
-_data = {
-"RESET": SubResource("Animation_fsorp"),
-"move_loop": SubResource("Animation_k01tk")
-}
-
 [node name="MovingPlatform" type="Node2D"]
+script = ExtResource("1_06dta")
 
-[node name="Platform" type="AnimatableBody2D" parent="."]
+[node name="Platform" type="CharacterBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform"]
 modulate = Color(0, 0, 0, 1)
@@ -55,8 +19,8 @@ texture = ExtResource("1_plgio")
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_k5jej")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
-autoplay = "move_loop"
-libraries = {
-"": SubResource("AnimationLibrary_v3ik5")
-}
+[node name="End" type="Marker2D" parent="Platform"]
+position = Vector2(124, 0)
+
+[node name="Begin" type="Marker2D" parent="Platform"]
+position = Vector2(-106, 0)
