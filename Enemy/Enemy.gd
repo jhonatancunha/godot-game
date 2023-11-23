@@ -65,8 +65,6 @@ func take_damage():
 
 func _on_attack_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("damage_area"):
-		print("TOMOU DANO")
-		print(health)
 		area.get_parent().take_damage()
 		is_punching = true
 		animationPlayer.play("punch")

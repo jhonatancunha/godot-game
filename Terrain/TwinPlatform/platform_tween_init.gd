@@ -31,4 +31,3 @@ func _draw() -> void:
 		else:
 			_final_pos = path[i+1]
 				
-		draw_line(_start_pos - global_position, _final_pos - global_position, Color.BLACK, 2)

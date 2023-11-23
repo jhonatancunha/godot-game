@@ -1,12 +1,14 @@
 class_name Player
 extends CharacterBody2D
 
+signal healthChanged
 
 @export var speed: float = 250.0
 @export var jump_velocity: float = -300.0
 @export var can_fire: bool = true
 @export var can_punch: bool = true
 @export var MAX_JUMPS: int = 2
+@export var MAX_HELTH: int = 3
 
 #FIRE
 @export var bullet_speed: float = 400
@@ -22,7 +24,7 @@ var _can_jump = true;
 var can_idle = true
 var is_walking = true
 var is_attacking: bool = false
-var health: int = 3
+var health: int = MAX_HELTH
 var is_moving_left: bool = true
 
 @onready var animationPlayer = $AnimationPlayer
@@ -141,10 +143,11 @@ func die():
 func take_damage():
 	if not is_attacking:
 		health -= 1
-		print("damage")
+		healthChanged.emit()
 	if health <= 0:
 		die()
 
 func increase_health():
-	health += 3
-	print("AUMENTOU HEALTH ", health)
+	if health < MAX_HELTH:
+		health += 1
+		healthChanged.emit()
