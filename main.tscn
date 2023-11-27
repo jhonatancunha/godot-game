@@ -5,3 +5,5 @@
 [node name="main" type="Node2D"]
 
 [node name="Menu" parent="." instance=ExtResource("1_kpmya")]
+offset_left = 0.0
+offset_right = 0.0
