@@ -128,6 +128,7 @@ func _fire_bullet(dir):
 		return
 	
 	var bullet: Sprite2D = _bullet_res.instantiate()
+
 	bullet.init(dir, bullet_speed)
 	bullet.position = $Marker2D.global_position
 	get_tree().get_root().add_child(bullet)

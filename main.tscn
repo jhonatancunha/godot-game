@@ -2,8 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://byt83uw26hb28" path="res://Menu/menu.tscn" id="1_kpmya"]
 
-[node name="main" type="Node2D"]
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 
-[node name="Menu" parent="." instance=ExtResource("1_kpmya")]
-offset_left = 0.0
-offset_right = 0.0
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Menu" parent="CenterContainer" instance=ExtResource("1_kpmya")]
+layout_mode = 2

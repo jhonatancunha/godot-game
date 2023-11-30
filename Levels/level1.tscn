@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dofuiaen7drac"]
+[gd_scene load_steps=17 format=3 uid="uid://dofuiaen7drac"]
 
 [ext_resource type="PackedScene" uid="uid://blx3wb41bsdr7" path="res://Player/player.tscn" id="2_7myil"]
 [ext_resource type="PackedScene" uid="uid://dxfmjk3a1rfvo" path="res://UI/MobileInput/Joystick.tscn" id="2_31ksa"]
 [ext_resource type="Texture2D" uid="uid://swvlj4rv8128" path="res://Assets/sky.png" id="2_fm5hr"]
 [ext_resource type="Texture2D" uid="uid://cwg06t4jpfkeg" path="res://Assets/ground.png" id="2_ybt7t"]
+[ext_resource type="Script" path="res://button_fullscreen.gd" id="3_gl1qa"]
 [ext_resource type="Texture2D" uid="uid://bevbkv5pxywkj" path="res://Terrain/MovingPlatform/platform.png" id="3_iop80"]
 [ext_resource type="PackedScene" uid="uid://cb7exhvs2ybjb" path="res://Enemy/Enemy.tscn" id="3_wwq43"]
 [ext_resource type="PackedScene" uid="uid://b4e70m8gear3i" path="res://Camera2D/camera_2d.tscn" id="4_0m6wt"]
@@ -175,6 +176,15 @@ scale = Vector2(0.940001, 0.940001)
 action_right = "right"
 action_left = "left"
 
+[node name="FullScren" type="Button" parent="CanvasLayer2/Buttons"]
+offset_left = 1136.0
+offset_top = 16.0
+offset_right = 1256.0
+offset_bottom = 47.0
+text = "F4 (FullScreen)"
+flat = true
+script = ExtResource("3_gl1qa")
+
 [node name="GUI" type="Node2D" parent="CanvasLayer2"]
 
 [node name="LEVEL" type="Label" parent="CanvasLayer2/GUI"]
@@ -241,6 +251,7 @@ layer_0/tile_data = PackedInt32Array(2424829, 0, 0, 2490365, 0, 1, 2555901, 0, 2
 position = Vector2(-56, 464)
 scale = Vector2(1.5, 1.5)
 jump_velocity = -430.0
+bullet_speed = 1200.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -464,3 +475,5 @@ position = Vector2(3352, 632)
 position = Vector2(3912, 616)
 scale = Vector2(-0.63483, -0.632213)
 destinationPath = "res://Levels/level2.tscn"
+
+[connection signal="button_down" from="CanvasLayer2/Buttons/FullScren" to="CanvasLayer2/Buttons/FullScren" method="_on_button_down"]

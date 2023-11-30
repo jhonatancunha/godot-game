@@ -3,6 +3,12 @@ extends Node2D
 
 @export var button_action: String = "action"
 
+func _ready() -> void:
+	if OS.has_feature("mobile"):
+		set_visible(true)
+	else:
+		set_visible(false)
+
 func _new_input(action: String, pressed: bool) -> void:
 	var ev: InputEventAction = InputEventAction.new()
 	ev.action = action
