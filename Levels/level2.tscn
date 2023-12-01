@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cdngrorkgltni"]
+[gd_scene load_steps=22 format=3 uid="uid://cdngrorkgltni"]
 
 [ext_resource type="PackedScene" uid="uid://c3ilfe2qoeq7h" path="res://UI/MobileInput/ButtonA.tscn" id="1_7jmsr"]
 [ext_resource type="Texture2D" uid="uid://swvlj4rv8128" path="res://Assets/sky.png" id="2_35l1h"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Player/healthBar.gd" id="4_1ina2"]
 [ext_resource type="Texture2D" uid="uid://bevbkv5pxywkj" path="res://Terrain/MovingPlatform/platform.png" id="4_tf6t3"]
 [ext_resource type="PackedScene" uid="uid://blx3wb41bsdr7" path="res://Player/player.tscn" id="5_15g8e"]
+[ext_resource type="Script" path="res://Bullet/bulletBar.gd" id="6_a6c83"]
 [ext_resource type="PackedScene" uid="uid://b4e70m8gear3i" path="res://Camera2D/camera_2d.tscn" id="6_pf4wq"]
 [ext_resource type="PackedScene" uid="uid://cb7exhvs2ybjb" path="res://Enemy/Enemy.tscn" id="7_aoeoj"]
 [ext_resource type="PackedScene" uid="uid://cr07u451dalw0" path="res://Traps/Spike/spike.tscn" id="8_adwex"]
@@ -190,6 +191,8 @@ position = Vector2(9.00001, 588)
 scale = Vector2(0.940001, 0.940001)
 action_right = "right"
 action_left = "left"
+action_up = ""
+action_down = ""
 
 [node name="FullScren" type="Button" parent="CanvasLayer2/Buttons"]
 offset_left = 1136.0
@@ -207,7 +210,7 @@ offset_left = 24.0
 offset_top = 16.0
 offset_right = 82.0
 offset_bottom = 42.0
-text = "Level: 1"
+text = "Level: 2"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer2"]
 
@@ -239,6 +242,25 @@ offset_bottom = 73.0
 text = "5
 "
 script = ExtResource("4_1ina2")
+player = NodePath("../../../Player")
+
+[node name="BULLETS" type="Node2D" parent="CanvasLayer2"]
+position = Vector2(0, 32)
+
+[node name="bullets" type="Label" parent="CanvasLayer2/BULLETS"]
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 82.0
+offset_bottom = 74.0
+text = "Munição:"
+
+[node name="value" type="Label" parent="CanvasLayer2/BULLETS" node_paths=PackedStringArray("player")]
+offset_left = 103.0
+offset_top = 49.0
+offset_right = 161.0
+offset_bottom = 75.0
+text = "5"
+script = ExtResource("6_a6c83")
 player = NodePath("../../../Player")
 
 [node name="elements" type="TileMap" parent="." groups=["tilemap"]]
@@ -344,51 +366,6 @@ speed = 230.0
 position = Vector2(226, 0)
 
 [connection signal="button_down" from="CanvasLayer2/Buttons/FullScren" to="CanvasLayer2/Buttons/FullScren" method="_on_button_down"]
-[connection signal="body_entered" from="elements/Spike" to="elements/Spike" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95162" to="elements/@Area2D@95162" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95163" to="elements/@Area2D@95163" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95164" to="elements/@Area2D@95164" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95165" to="elements/@Area2D@95165" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95166" to="elements/@Area2D@95166" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95167" to="elements/@Area2D@95167" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95168" to="elements/@Area2D@95168" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95169" to="elements/@Area2D@95169" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95170" to="elements/@Area2D@95170" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95171" to="elements/@Area2D@95171" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95172" to="elements/@Area2D@95172" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95173" to="elements/@Area2D@95173" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95174" to="elements/@Area2D@95174" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95175" to="elements/@Area2D@95175" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95176" to="elements/@Area2D@95176" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95177" to="elements/@Area2D@95177" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95178" to="elements/@Area2D@95178" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95179" to="elements/@Area2D@95179" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95180" to="elements/@Area2D@95180" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95181" to="elements/@Area2D@95181" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95182" to="elements/@Area2D@95182" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95183" to="elements/@Area2D@95183" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95184" to="elements/@Area2D@95184" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95185" to="elements/@Area2D@95185" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95186" to="elements/@Area2D@95186" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95187" to="elements/@Area2D@95187" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95188" to="elements/@Area2D@95188" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95189" to="elements/@Area2D@95189" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95190" to="elements/@Area2D@95190" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95191" to="elements/@Area2D@95191" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95192" to="elements/@Area2D@95192" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95193" to="elements/@Area2D@95193" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95194" to="elements/@Area2D@95194" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95195" to="elements/@Area2D@95195" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95196" to="elements/@Area2D@95196" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95197" to="elements/@Area2D@95197" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95198" to="elements/@Area2D@95198" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95199" to="elements/@Area2D@95199" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95200" to="elements/@Area2D@95200" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95201" to="elements/@Area2D@95201" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95202" to="elements/@Area2D@95202" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95203" to="elements/@Area2D@95203" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95204" to="elements/@Area2D@95204" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="elements/@Area2D@95205" to="elements/@Area2D@95205" method="_on_body_entered" flags=18]
 
 [editable path="ITEMS/PlatformTween2"]
 [editable path="ITEMS/PlatformTween3"]

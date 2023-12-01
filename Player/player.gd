@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 signal healthChanged
+signal bulletChanged
 
 @export var speed: float = 250.0
 @export var jump_velocity: float = -300.0
@@ -9,6 +10,7 @@ signal healthChanged
 @export var can_punch: bool = true
 @export var MAX_JUMPS: int = 2
 @export var MAX_HELTH: int = 3
+@export var INITIAL_BULLETS: int = 5
 
 #FIRE
 @export var bullet_speed: float = 400
@@ -26,6 +28,7 @@ var is_walking = true
 var is_attacking: bool = false
 var health: int = MAX_HELTH
 var is_moving_left: bool = true
+var bullets: int = INITIAL_BULLETS
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var sprite = $Sprite2D
@@ -89,6 +92,11 @@ func _process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
+	if bullets <= 0:
+		can_fire = false
+	else:
+		can_fire = true
+
 	move_and_slide()
 	
 	# SOCO
@@ -127,8 +135,10 @@ func _fire_bullet(dir):
 	if not _can_fire:
 		return
 	
+	bullets -= 1
+	bulletChanged.emit()
+	
 	var bullet: Sprite2D = _bullet_res.instantiate()
-
 	bullet.init(dir, bullet_speed)
 	bullet.position = $Marker2D.global_position
 	get_tree().get_root().add_child(bullet)
@@ -152,3 +162,5 @@ func increase_health():
 	if health < MAX_HELTH:
 		health += 1
 		healthChanged.emit()
+		
+		
