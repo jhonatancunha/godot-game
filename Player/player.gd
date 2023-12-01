@@ -76,12 +76,11 @@ func _process(delta: float) -> void:
 		sprite.flip_h = (direction == -1);
 		
 		
-	if Input.is_action_just_pressed("right"):
+	if direction > 0:
 		is_moving_left = false
 		$PunchArea2D/Colision.position.x = abs($PunchArea2D/Colision.position.x)
 		$Marker2D.position.x = 27
-	
-	if Input.is_action_just_pressed("left"):
+	elif direction < 0:
 		is_moving_left = true
 		$PunchArea2D/Colision.position.x = -abs($PunchArea2D/Colision.position.x)
 		$Marker2D.position.x = -27
