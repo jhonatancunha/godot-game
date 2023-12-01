@@ -147,48 +147,51 @@ sources/3 = SubResource("TileSetScenesCollectionSource_fc057")
 
 [node name="World" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="Buttons" type="Node2D" parent="CanvasLayer"]
+[node name="Buttons" type="Node2D" parent="CanvasLayer2"]
 
-[node name="Shot" parent="CanvasLayer/Buttons" instance=ExtResource("1_7jmsr")]
-position = Vector2(1048, 672)
+[node name="Shot" parent="CanvasLayer2/Buttons" instance=ExtResource("1_7jmsr")]
+position = Vector2(736, 592)
+scale = Vector2(3, 3)
 button_action = "fire"
 
-[node name="AtirarLabel" type="Label" parent="CanvasLayer/Buttons/Shot"]
+[node name="AtirarLabel" type="Label" parent="CanvasLayer2/Buttons/Shot"]
 offset_left = -8.0
 offset_top = -23.9999
 offset_right = 65.0
 offset_bottom = 2.00006
 text = "Atirar"
 
-[node name="Punch" parent="CanvasLayer/Buttons" instance=ExtResource("1_7jmsr")]
-position = Vector2(1208, 672)
+[node name="Punch" parent="CanvasLayer2/Buttons" instance=ExtResource("1_7jmsr")]
+position = Vector2(1112, 592)
+scale = Vector2(3, 3)
 button_action = "punch"
 
-[node name="SocarLabel" type="Label" parent="CanvasLayer/Buttons/Punch"]
+[node name="SocarLabel" type="Label" parent="CanvasLayer2/Buttons/Punch"]
 offset_top = -24.0001
 offset_right = 73.0
 offset_bottom = 1.99994
 text = "Socar"
 
-[node name="Jump" parent="CanvasLayer/Buttons" instance=ExtResource("1_7jmsr")]
-position = Vector2(1128, 672)
+[node name="Jump" parent="CanvasLayer2/Buttons" instance=ExtResource("1_7jmsr")]
+position = Vector2(920, 592)
+scale = Vector2(3, 3)
 button_action = "jump"
 
-[node name="PularLabel" type="Label" parent="CanvasLayer/Buttons/Jump"]
+[node name="PularLabel" type="Label" parent="CanvasLayer2/Buttons/Jump"]
 offset_top = -23.9999
 offset_right = 73.0
 offset_bottom = 2.00006
 text = "Pular"
 
-[node name="JoystickBase" parent="CanvasLayer/Buttons" instance=ExtResource("11_cisfo")]
+[node name="JoystickBase" parent="CanvasLayer2/Buttons" instance=ExtResource("11_cisfo")]
 position = Vector2(9.00001, 588)
 scale = Vector2(0.940001, 0.940001)
 action_right = "right"
 action_left = "left"
 
-[node name="FullScren" type="Button" parent="CanvasLayer/Buttons"]
+[node name="FullScren" type="Button" parent="CanvasLayer2/Buttons"]
 offset_left = 1136.0
 offset_top = 16.0
 offset_right = 1256.0
@@ -197,38 +200,38 @@ text = "F4 (FullScreen)"
 flat = true
 script = ExtResource("15_px4pb")
 
-[node name="GUI" type="Node2D" parent="CanvasLayer"]
+[node name="GUI" type="Node2D" parent="CanvasLayer2"]
 
-[node name="LEVEL" type="Label" parent="CanvasLayer/GUI"]
+[node name="LEVEL" type="Label" parent="CanvasLayer2/GUI"]
 offset_left = 24.0
 offset_top = 16.0
 offset_right = 82.0
 offset_bottom = 42.0
-text = "Level: 2"
+text = "Level: 1"
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer2"]
 
-[node name="Sky" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+[node name="Sky" type="ParallaxLayer" parent="CanvasLayer2/ParallaxBackground"]
 motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(1280, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/Sky"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer2/ParallaxBackground/Sky"]
 modulate = Color(0.996078, 0.611765, 0.603922, 1)
 position = Vector2(-456, -392)
 scale = Vector2(2, 1)
 texture = ExtResource("2_35l1h")
 centered = false
 
-[node name="HEALTH" type="Node2D" parent="CanvasLayer"]
+[node name="HEALTH" type="Node2D" parent="CanvasLayer2"]
 
-[node name="HP" type="Label" parent="CanvasLayer/HEALTH"]
+[node name="HP" type="Label" parent="CanvasLayer2/HEALTH"]
 offset_left = 24.0
 offset_top = 48.0
 offset_right = 82.0
 offset_bottom = 74.0
 text = "HP:"
 
-[node name="value" type="Label" parent="CanvasLayer/HEALTH" node_paths=PackedStringArray("player")]
+[node name="value" type="Label" parent="CanvasLayer2/HEALTH" node_paths=PackedStringArray("player")]
 offset_left = 64.0
 offset_top = 47.0
 offset_right = 122.0
@@ -268,21 +271,21 @@ destinationPath = "res://Levels/level3.tscn"
 [node name="Enemy" parent="." instance=ExtResource("7_aoeoj")]
 modulate = Color(0.941176, 0, 0.0745098, 1)
 position = Vector2(723, 384)
-scale = Vector2(1.72, 1.69711)
+scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 2
 
 [node name="Enemy2" parent="." instance=ExtResource("7_aoeoj")]
 modulate = Color(0.941176, 0, 0.0745098, 1)
 position = Vector2(1503, 349)
-scale = Vector2(1.72, 1.69711)
+scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 2
 
 [node name="Enemy3" parent="." instance=ExtResource("7_aoeoj")]
 modulate = Color(0.941176, 0, 0.0745098, 1)
 position = Vector2(1663, 89)
-scale = Vector2(1.72, 1.69711)
+scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 2
 
@@ -340,7 +343,52 @@ speed = 230.0
 [node name="Final" parent="ITEMS/PlatformTween4/Path" index="1"]
 position = Vector2(226, 0)
 
-[connection signal="button_down" from="CanvasLayer/Buttons/FullScren" to="CanvasLayer/Buttons/FullScren" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer2/Buttons/FullScren" to="CanvasLayer2/Buttons/FullScren" method="_on_button_down"]
+[connection signal="body_entered" from="elements/Spike" to="elements/Spike" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45670" to="elements/@Area2D@45670" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45671" to="elements/@Area2D@45671" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45672" to="elements/@Area2D@45672" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45673" to="elements/@Area2D@45673" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45674" to="elements/@Area2D@45674" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45675" to="elements/@Area2D@45675" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45676" to="elements/@Area2D@45676" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45677" to="elements/@Area2D@45677" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45678" to="elements/@Area2D@45678" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45679" to="elements/@Area2D@45679" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45680" to="elements/@Area2D@45680" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45681" to="elements/@Area2D@45681" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45682" to="elements/@Area2D@45682" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45683" to="elements/@Area2D@45683" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45684" to="elements/@Area2D@45684" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45685" to="elements/@Area2D@45685" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45686" to="elements/@Area2D@45686" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45687" to="elements/@Area2D@45687" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45688" to="elements/@Area2D@45688" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45689" to="elements/@Area2D@45689" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45690" to="elements/@Area2D@45690" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45691" to="elements/@Area2D@45691" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45692" to="elements/@Area2D@45692" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45693" to="elements/@Area2D@45693" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45694" to="elements/@Area2D@45694" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45695" to="elements/@Area2D@45695" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45696" to="elements/@Area2D@45696" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45697" to="elements/@Area2D@45697" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45698" to="elements/@Area2D@45698" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45699" to="elements/@Area2D@45699" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45700" to="elements/@Area2D@45700" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45701" to="elements/@Area2D@45701" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45702" to="elements/@Area2D@45702" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45703" to="elements/@Area2D@45703" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45704" to="elements/@Area2D@45704" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45705" to="elements/@Area2D@45705" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45706" to="elements/@Area2D@45706" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45707" to="elements/@Area2D@45707" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45708" to="elements/@Area2D@45708" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45709" to="elements/@Area2D@45709" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45710" to="elements/@Area2D@45710" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45711" to="elements/@Area2D@45711" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45712" to="elements/@Area2D@45712" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="elements/@Area2D@45713" to="elements/@Area2D@45713" method="_on_body_entered" flags=18]
 
 [editable path="ITEMS/PlatformTween2"]
 [editable path="ITEMS/PlatformTween3"]

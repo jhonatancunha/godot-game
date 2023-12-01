@@ -140,7 +140,8 @@ sources/2 = SubResource("TileSetAtlasSource_lmjku")
 [node name="Buttons" type="Node2D" parent="CanvasLayer2"]
 
 [node name="Shot" parent="CanvasLayer2/Buttons" instance=ExtResource("10_cbs0k")]
-position = Vector2(1048, 672)
+position = Vector2(736, 592)
+scale = Vector2(3, 3)
 button_action = "fire"
 
 [node name="AtirarLabel" type="Label" parent="CanvasLayer2/Buttons/Shot"]
@@ -151,7 +152,8 @@ offset_bottom = 2.00006
 text = "Atirar"
 
 [node name="Punch" parent="CanvasLayer2/Buttons" instance=ExtResource("10_cbs0k")]
-position = Vector2(1208, 672)
+position = Vector2(1112, 592)
+scale = Vector2(3, 3)
 button_action = "punch"
 
 [node name="SocarLabel" type="Label" parent="CanvasLayer2/Buttons/Punch"]
@@ -161,7 +163,8 @@ offset_bottom = 1.99994
 text = "Socar"
 
 [node name="Jump" parent="CanvasLayer2/Buttons" instance=ExtResource("10_cbs0k")]
-position = Vector2(1128, 672)
+position = Vector2(920, 592)
+scale = Vector2(3, 3)
 button_action = "jump"
 
 [node name="PularLabel" type="Label" parent="CanvasLayer2/Buttons/Jump"]
@@ -264,7 +267,7 @@ scale = Vector2(1.5, 1.5)
 [node name="Enemy" parent="." instance=ExtResource("3_wwq43")]
 modulate = Color(0.941176, 0, 0.0745098, 1)
 position = Vector2(723, 384)
-scale = Vector2(1.72, 1.69711)
+scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 2
 
