@@ -13,6 +13,9 @@ func _process(_delta: float) -> void:
 func _on_pressed() -> void:
 	_toggle_fullscreen()
 
+func _on_button_down() -> void:
+	_toggle_fullscreen()
+
 func _toggle_fullscreen() -> void:
 	_is_full_screen = not _is_full_screen
 	if _is_full_screen:
