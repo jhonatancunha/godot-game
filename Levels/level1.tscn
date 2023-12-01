@@ -141,8 +141,8 @@ sources/2 = SubResource("TileSetAtlasSource_lmjku")
 [node name="Buttons" type="Node2D" parent="CanvasLayer2"]
 
 [node name="Shot" parent="CanvasLayer2/Buttons" instance=ExtResource("10_cbs0k")]
-position = Vector2(736, 592)
-scale = Vector2(3, 3)
+position = Vector2(1037, 627)
+scale = Vector2(2, 2)
 button_action = "fire"
 
 [node name="AtirarLabel" type="Label" parent="CanvasLayer2/Buttons/Shot"]
@@ -151,10 +151,11 @@ offset_top = -23.9999
 offset_right = 65.0
 offset_bottom = 2.00006
 text = "Atirar"
+metadata/_edit_use_anchors_ = true
 
 [node name="Punch" parent="CanvasLayer2/Buttons" instance=ExtResource("10_cbs0k")]
-position = Vector2(1112, 592)
-scale = Vector2(3, 3)
+position = Vector2(1166, 627)
+scale = Vector2(2, 2)
 button_action = "punch"
 
 [node name="SocarLabel" type="Label" parent="CanvasLayer2/Buttons/Punch"]
@@ -162,10 +163,11 @@ offset_top = -24.0001
 offset_right = 73.0
 offset_bottom = 1.99994
 text = "Socar"
+metadata/_edit_use_anchors_ = true
 
 [node name="Jump" parent="CanvasLayer2/Buttons" instance=ExtResource("10_cbs0k")]
-position = Vector2(920, 592)
-scale = Vector2(3, 3)
+position = Vector2(903, 627)
+scale = Vector2(2, 2)
 button_action = "jump"
 
 [node name="PularLabel" type="Label" parent="CanvasLayer2/Buttons/Jump"]
@@ -173,6 +175,7 @@ offset_top = -23.9999
 offset_right = 73.0
 offset_bottom = 2.00006
 text = "Pular"
+metadata/_edit_use_anchors_ = true
 
 [node name="JoystickBase" parent="CanvasLayer2/Buttons" instance=ExtResource("2_31ksa")]
 position = Vector2(9.00001, 588)
