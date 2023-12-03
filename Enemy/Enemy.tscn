@@ -170,6 +170,11 @@ libraries = {
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(-9.88372, -26)
 
+[node name="RayCast2D2H" type="RayCast2D" parent="."]
+position = Vector2(-10, 6)
+rotation = -1.57079
+target_position = Vector2(5.05447e-05, 8)
+
 [node name="EnemyArea2D" type="Area2D" parent="." groups=["enemy"]]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="EnemyArea2D"]

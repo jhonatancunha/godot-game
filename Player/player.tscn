@@ -149,7 +149,7 @@ size = Vector2(25, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtu4q"]
 size = Vector2(27, 35)
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" groups=["IgnoreRaycastGroup", "player"]]
 z_index = 1
 script = ExtResource("1_8skvs")
 
