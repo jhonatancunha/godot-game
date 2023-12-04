@@ -9,6 +9,7 @@ size = Vector2(8.41346, 13.1723)
 [node name="portal" type="Node2D"]
 scale = Vector2(1.00414, 1)
 script = ExtResource("1_1gnuu")
+destinationPath = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(8.77931, 27.2)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dofuiaen7drac"]
+[gd_scene load_steps=19 format=3 uid="uid://dofuiaen7drac"]
 
 [ext_resource type="PackedScene" uid="uid://blx3wb41bsdr7" path="res://Player/player.tscn" id="2_7myil"]
 [ext_resource type="PackedScene" uid="uid://dxfmjk3a1rfvo" path="res://UI/MobileInput/Joystick.tscn" id="2_31ksa"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Player/healthBar.gd" id="4_13bxq"]
 [ext_resource type="PackedScene" uid="uid://cr07u451dalw0" path="res://Traps/Spike/spike.tscn" id="6_2yeux"]
 [ext_resource type="Script" path="res://Bullet/bulletBar.gd" id="6_ji4fn"]
+[ext_resource type="Script" path="res://UI/tryCount.gd" id="7_3vd66"]
 [ext_resource type="PackedScene" uid="uid://btopemn7cld2t" path="res://ItemBox/item_box.tscn" id="9_27u8p"]
 [ext_resource type="PackedScene" uid="uid://c3ilfe2qoeq7h" path="res://UI/MobileInput/ButtonA.tscn" id="10_cbs0k"]
 [ext_resource type="PackedScene" uid="uid://c6sj7ksv8ikef" path="res://Terrain/Portal/portal.tscn" id="12_ah5y3"]
@@ -193,6 +194,7 @@ flat = true
 script = ExtResource("3_gl1qa")
 
 [node name="GUI" type="Node2D" parent="CanvasLayer2"]
+position = Vector2(0, 32)
 
 [node name="LEVEL" type="Label" parent="CanvasLayer2/GUI"]
 offset_left = 24.0
@@ -215,6 +217,7 @@ texture = ExtResource("2_fm5hr")
 centered = false
 
 [node name="HEALTH" type="Node2D" parent="CanvasLayer2"]
+position = Vector2(0, 32)
 
 [node name="HP" type="Label" parent="CanvasLayer2/HEALTH"]
 offset_left = 24.0
@@ -234,7 +237,7 @@ script = ExtResource("4_13bxq")
 player = NodePath("../../../Player")
 
 [node name="BULLETS" type="Node2D" parent="CanvasLayer2"]
-position = Vector2(0, 32)
+position = Vector2(0, 64)
 
 [node name="bullets" type="Label" parent="CanvasLayer2/BULLETS"]
 offset_left = 24.0
@@ -251,6 +254,24 @@ offset_bottom = 75.0
 text = "5"
 script = ExtResource("6_ji4fn")
 player = NodePath("../../../Player")
+
+[node name="TENTATIVAS" type="Node2D" parent="CanvasLayer2"]
+position = Vector2(0, -32)
+
+[node name="TENTATIVAS" type="Label" parent="CanvasLayer2/TENTATIVAS"]
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 190.0
+offset_bottom = 74.0
+text = "Tentativas Restantes:"
+
+[node name="value" type="Label" parent="CanvasLayer2/TENTATIVAS"]
+offset_left = 200.0
+offset_top = 48.0
+offset_right = 258.0
+offset_bottom = 74.0
+text = "3"
+script = ExtResource("7_3vd66")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

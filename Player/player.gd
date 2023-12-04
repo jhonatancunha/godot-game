@@ -29,6 +29,7 @@ var is_attacking: bool = false
 var health: int = MAX_HELTH
 var is_moving_left: bool = true
 var bullets: int = INITIAL_BULLETS
+var dispatchEvent = true;
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var sprite = $Sprite2D
@@ -148,7 +149,18 @@ func _fire_bullet(dir):
 
 
 func die():
-	get_tree().reload_current_scene()
+	if dispatchEvent == true:
+		dispatchEvent = false
+		
+		GameController.decrease_play_again()
+		if GameController.get_play_again_count() <= 0:
+			get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
+		else:
+			get_tree().reload_current_scene()
+		
+		await get_tree().create_timer(500).timeout
+		dispatchEvent = true
+
 
 func take_damage():
 	if not is_attacking:
