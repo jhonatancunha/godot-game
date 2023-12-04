@@ -178,8 +178,8 @@ text = "Pular"
 metadata/_edit_use_anchors_ = true
 
 [node name="JoystickBase" parent="CanvasLayer2/Buttons" instance=ExtResource("2_31ksa")]
-position = Vector2(9.00001, 588)
-scale = Vector2(0.940001, 0.940001)
+position = Vector2(22, 518)
+scale = Vector2(1.5, 1.5)
 action_right = "right"
 action_left = "left"
 

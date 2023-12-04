@@ -9,7 +9,7 @@ radius = 64.0
 
 [node name="JoystickBase" type="TouchScreenButton"]
 modulate = Color(1, 1, 1, 0.313726)
-scale = Vector2(1.5, 1.5)
+scale = Vector2(3, 3)
 texture_normal = ExtResource("1_ygscl")
 shape = SubResource("CircleShape2D_wwqh1")
 script = ExtResource("2_uulxx")
