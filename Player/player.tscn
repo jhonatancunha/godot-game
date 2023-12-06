@@ -1,7 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://blx3wb41bsdr7"]
+[gd_scene load_steps=17 format=3 uid="uid://blx3wb41bsdr7"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_8skvs"]
 [ext_resource type="Texture2D" uid="uid://btt2056o0vn2k" path="res://Player/player_movements.png" id="2_4dlf7"]
+[ext_resource type="AudioStream" uid="uid://dhe4h41gmxrky" path="res://Assets/punch.ogg" id="3_0afqy"]
+[ext_resource type="AudioStream" uid="uid://3koq3ye2nn4j" path="res://Assets/gun_shot.wav" id="3_am3pp"]
+[ext_resource type="AudioStream" uid="uid://ccx2vjf75t5md" path="res://Assets/jump.wav" id="3_fx7us"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8clb"]
 size = Vector2(27, 53)
@@ -185,6 +188,22 @@ position = Vector2(27, -17)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_area_2D"]
 position = Vector2(-3.5, 7.5)
 shape = SubResource("RectangleShape2D_qtu4q")
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("3_fx7us")
+volume_db = 3.588
+
+[node name="ShotSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("3_am3pp")
+volume_db = 7.776
+pitch_scale = 0.75
+
+[node name="PunchSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("3_0afqy")
+volume_db = 24.0
+pitch_scale = 0.65
 
 [connection signal="area_entered" from="PunchArea2D" to="." method="_on_punch_area_2d_area_entered"]
 [connection signal="area_entered" from="damage_area_2D" to="." method="_on_damage_area_2d_area_entered"]

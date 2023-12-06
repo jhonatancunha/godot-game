@@ -64,8 +64,10 @@ func _process(delta: float) -> void:
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
+			$Sounds/JumpSound.play()
 			velocity.y = jump_velocity
 		elif _qtd_jumps < MAX_JUMPS and _can_jump:
+			$Sounds/JumpSound.play()
 			_qtd_jumps += 1
 			velocity.y = jump_velocity
 
@@ -103,6 +105,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("punch") and can_punch:
 		is_attacking = true
 		can_idle = false
+		$Sounds/PunchSound.play()
 		$AnimationPlayer.play("punch")
 		await $AnimationPlayer.animation_finished
 		can_idle = true
@@ -119,10 +122,11 @@ func _process(delta: float) -> void:
 			$AnimationPlayer.play("idle_shot")
 			
 		_fire_bullet(sprite.flip_h)
+		$Sounds/ShotSound.play()
 		await $AnimationPlayer.animation_finished
 		can_idle = true
 		is_attacking = false
-
+  
 	update_animation(direction)
 
 func _on_punch_area_2d_area_entered(area: Area2D) -> void:
