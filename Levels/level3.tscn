@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cs73r0vuy22c"]
+[gd_scene load_steps=21 format=3 uid="uid://cs73r0vuy22c"]
 
 [ext_resource type="PackedScene" uid="uid://c3ilfe2qoeq7h" path="res://UI/MobileInput/ButtonA.tscn" id="1_fgh8s"]
 [ext_resource type="PackedScene" uid="uid://dxfmjk3a1rfvo" path="res://UI/MobileInput/Joystick.tscn" id="2_ccfi8"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c164gvrbpp655" path="res://Terrain/TwinPlatform/twin_platform.tscn" id="10_pqrhq"]
 [ext_resource type="Script" path="res://Player/healthBar.gd" id="11_cs6yt"]
 [ext_resource type="AudioStream" uid="uid://cy32u6ys2jitv" path="res://Assets/level 3.wav" id="14_n3kf3"]
+[ext_resource type="PackedScene" uid="uid://c6sj7ksv8ikef" path="res://Terrain/Portal/portal.tscn" id="15_ylfrh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_igheu"]
 texture = ExtResource("4_nb8gf")
@@ -311,6 +312,9 @@ position = Vector2(293, 0)
 stream = ExtResource("14_n3kf3")
 volume_db = -5.701
 autoplay = true
+
+[node name="portal" parent="." instance=ExtResource("15_ylfrh")]
+position = Vector2(2762, 1259)
 
 [connection signal="button_down" from="CanvasLayer2/Buttons/FullScren" to="CanvasLayer2/Buttons/FullScren" method="_on_button_down"]
 

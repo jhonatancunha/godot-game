@@ -9,6 +9,7 @@ static var levels = {
 	2: "res://Levels/level2.tscn",
 	3: "res://Levels/level3.tscn",
 	4: "res://Levels/level4.tscn",
+	5: "res://Levels/level5.tscn",
 }
 
 static var dispatchEvent = true
@@ -19,6 +20,7 @@ static var dispatchEvent = true
 # PUBLIC METHODS
 
 static func go_next_level() -> void:
+	print(get_current_level())
 	if dispatchEvent == true:
 		dispatchEvent = false
 		currentLevel += 1

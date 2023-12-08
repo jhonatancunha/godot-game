@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://clbxvsu8cx4wv" path="res://Terrain/TwinPlatform/platform.png" id="1_s6v0a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sjgnc"]
-size = Vector2(43, 8)
+size = Vector2(131, 8)
 
 [node name="PlatformTween" type="Node2D"]
 modulate = Color(0, 0, 0, 1)
