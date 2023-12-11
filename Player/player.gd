@@ -10,7 +10,7 @@ signal bulletChanged
 @export var can_punch: bool = true
 @export var MAX_JUMPS: int = 2
 @export var MAX_HELTH: int = 3
-@export var INITIAL_BULLETS: int = 5
+@export var INITIAL_BULLETS: int = 50
 
 #FIRE
 @export var bullet_speed: float = 400
@@ -105,7 +105,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("punch") and can_punch:
 		is_attacking = true
 		can_idle = false
-		$Sounds/PunchSound.play()
+		if not $Sounds/PunchSound.playing:
+			$Sounds/PunchSound.play()
 		$AnimationPlayer.play("punch")
 		await $AnimationPlayer.animation_finished
 		can_idle = true
@@ -122,7 +123,7 @@ func _process(delta: float) -> void:
 			$AnimationPlayer.play("idle_shot")
 			
 		_fire_bullet(sprite.flip_h)
-		$Sounds/ShotSound.play()
+		
 		await $AnimationPlayer.animation_finished
 		can_idle = true
 		is_attacking = false
@@ -148,6 +149,8 @@ func _fire_bullet(dir):
 	get_tree().get_root().add_child(bullet)
 	
 	_can_fire = false
+	if not $Sounds/ShotSound.playing:
+			$Sounds/ShotSound.play()
 	await get_tree().create_timer(fire_delay).timeout
 	_can_fire = true
 

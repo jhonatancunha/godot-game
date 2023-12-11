@@ -275,15 +275,7 @@ layer_0/tile_data = PackedInt32Array(1966088, 0, 0, 2031624, 0, 1, 2097160, 0, 2
 [node name="Player" parent="." instance=ExtResource("8_b4ghh")]
 position = Vector2(188, 368)
 scale = Vector2(1.5, 1.5)
-speed = null
 jump_velocity = -430.0
-can_fire = null
-can_punch = null
-MAX_JUMPS = null
-MAX_HELTH = null
-INITIAL_BULLETS = null
-bullet_speed = null
-fire_delay = null
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
