@@ -16,7 +16,6 @@ static var dispatchEvent = true
 # PRIVATE METHODS
 ############################################
 
-
 # PUBLIC METHODS
 
 static func go_next_level() -> void:
@@ -44,3 +43,6 @@ static func increase_play_again() -> void:
 
 static func reset_play_again() -> void:
 	maxTry = 3
+
+static func restart_game_over() -> String:
+	return levels[1]

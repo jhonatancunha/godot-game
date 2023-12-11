@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6egomahpawdw"]
+[gd_scene load_steps=15 format=3 uid="uid://c6egomahpawdw"]
 
 [ext_resource type="PackedScene" uid="uid://c3ilfe2qoeq7h" path="res://UI/MobileInput/ButtonA.tscn" id="1_bdqv4"]
+[ext_resource type="Script" path="res://Levels/level_settings.gd" id="1_l4tu0"]
 [ext_resource type="Texture2D" uid="uid://swvlj4rv8128" path="res://Assets/sky.png" id="2_bxn7g"]
 [ext_resource type="Texture2D" uid="uid://cwg06t4jpfkeg" path="res://Assets/ground.png" id="3_kvtk4"]
 [ext_resource type="Texture2D" uid="uid://bevbkv5pxywkj" path="res://Terrain/MovingPlatform/platform.png" id="4_mk2wk"]
@@ -233,6 +234,7 @@ sources/0 = SubResource("TileSetAtlasSource_igheu")
 sources/2 = SubResource("TileSetAtlasSource_lmjku")
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_l4tu0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

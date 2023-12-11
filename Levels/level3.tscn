@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://cs73r0vuy22c"]
+[gd_scene load_steps=23 format=3 uid="uid://cs73r0vuy22c"]
 
 [ext_resource type="PackedScene" uid="uid://c3ilfe2qoeq7h" path="res://UI/MobileInput/ButtonA.tscn" id="1_fgh8s"]
+[ext_resource type="Script" path="res://Levels/level_settings.gd" id="1_uthcg"]
 [ext_resource type="PackedScene" uid="uid://dxfmjk3a1rfvo" path="res://UI/MobileInput/Joystick.tscn" id="2_ccfi8"]
 [ext_resource type="Texture2D" uid="uid://swvlj4rv8128" path="res://Assets/sky.png" id="3_w1hto"]
 [ext_resource type="Texture2D" uid="uid://cwg06t4jpfkeg" path="res://Assets/ground.png" id="4_nb8gf"]
@@ -9,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bevbkv5pxywkj" path="res://Terrain/MovingPlatform/platform.png" id="6_fkq38"]
 [ext_resource type="PackedScene" uid="uid://cr07u451dalw0" path="res://Traps/Spike/spike.tscn" id="7_ifh1m"]
 [ext_resource type="PackedScene" uid="uid://blx3wb41bsdr7" path="res://Player/player.tscn" id="8_b4ghh"]
+[ext_resource type="Script" path="res://UI/tryCount.gd" id="8_lbwdv"]
 [ext_resource type="PackedScene" uid="uid://b4e70m8gear3i" path="res://Camera2D/camera_2d.tscn" id="9_b2byu"]
 [ext_resource type="Script" path="res://button_fullscreen.gd" id="10_g2bcv"]
 [ext_resource type="PackedScene" uid="uid://c164gvrbpp655" path="res://Terrain/TwinPlatform/twin_platform.tscn" id="10_pqrhq"]
@@ -146,6 +148,7 @@ sources/1 = SubResource("TileSetScenesCollectionSource_tkn3e")
 sources/3 = SubResource("TileSetScenesCollectionSource_fc057")
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_uthcg")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
@@ -203,15 +206,6 @@ text = "F4 (FullScreen)"
 flat = true
 script = ExtResource("10_g2bcv")
 
-[node name="GUI" type="Node2D" parent="CanvasLayer2"]
-
-[node name="LEVEL" type="Label" parent="CanvasLayer2/GUI"]
-offset_left = 24.0
-offset_top = 16.0
-offset_right = 82.0
-offset_bottom = 42.0
-text = "Level: 3"
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer2"]
 
 [node name="Sky" type="ParallaxLayer" parent="CanvasLayer2/ParallaxBackground"]
@@ -225,7 +219,19 @@ scale = Vector2(2, 1)
 texture = ExtResource("3_w1hto")
 centered = false
 
+[node name="LEVEL" type="Node2D" parent="CanvasLayer2"]
+position = Vector2(0, 28)
+
+[node name="LEVEL" type="Label" parent="CanvasLayer2/LEVEL"]
+offset_left = 24.0
+offset_top = 17.0
+offset_right = 82.0
+offset_bottom = 43.0
+text = "Level: 3
+"
+
 [node name="HEALTH" type="Node2D" parent="CanvasLayer2"]
+position = Vector2(0, 32)
 
 [node name="HP" type="Label" parent="CanvasLayer2/HEALTH"]
 offset_left = 24.0
@@ -245,7 +251,7 @@ script = ExtResource("11_cs6yt")
 player = NodePath("../../../Player")
 
 [node name="BULLETS" type="Node2D" parent="CanvasLayer2"]
-position = Vector2(0, 32)
+position = Vector2(0, 64)
 
 [node name="bullets" type="Label" parent="CanvasLayer2/BULLETS"]
 offset_left = 24.0
@@ -262,6 +268,24 @@ offset_bottom = 75.0
 text = "5"
 script = ExtResource("6_0vw14")
 player = NodePath("../../../Player")
+
+[node name="TENTATIVAS" type="Node2D" parent="CanvasLayer2"]
+position = Vector2(-2, -33)
+
+[node name="TENTATIVAS" type="Label" parent="CanvasLayer2/TENTATIVAS"]
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 190.0
+offset_bottom = 74.0
+text = "Tentativas Restantes:"
+
+[node name="value" type="Label" parent="CanvasLayer2/TENTATIVAS"]
+offset_left = 200.0
+offset_top = 48.0
+offset_right = 258.0
+offset_bottom = 74.0
+text = "3"
+script = ExtResource("8_lbwdv")
 
 [node name="elements" type="TileMap" parent="." groups=["tilemap"]]
 modulate = Color(0, 0, 0, 1)

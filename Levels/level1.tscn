@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://dofuiaen7drac"]
+[gd_scene load_steps=21 format=3 uid="uid://dofuiaen7drac"]
 
+[ext_resource type="Script" path="res://Levels/level_settings.gd" id="1_fkpva"]
 [ext_resource type="PackedScene" uid="uid://blx3wb41bsdr7" path="res://Player/player.tscn" id="2_7myil"]
 [ext_resource type="PackedScene" uid="uid://dxfmjk3a1rfvo" path="res://UI/MobileInput/Joystick.tscn" id="2_31ksa"]
 [ext_resource type="Texture2D" uid="uid://swvlj4rv8128" path="res://Assets/sky.png" id="2_fm5hr"]
@@ -137,6 +138,7 @@ sources/0 = SubResource("TileSetAtlasSource_igheu")
 sources/2 = SubResource("TileSetAtlasSource_lmjku")
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_fkpva")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 

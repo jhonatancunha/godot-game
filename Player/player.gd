@@ -48,8 +48,6 @@ func update_animation(direction):
 				else:
 					animationPlayer.play("walk")
 
-func _ready() -> void:
-	pass
 
 func _process(delta: float) -> void:
 	# Add the gravity.

@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://cdngrorkgltni"]
+[gd_scene load_steps=25 format=3 uid="uid://cdngrorkgltni"]
 
 [ext_resource type="PackedScene" uid="uid://c3ilfe2qoeq7h" path="res://UI/MobileInput/ButtonA.tscn" id="1_7jmsr"]
+[ext_resource type="Script" path="res://Levels/level_settings.gd" id="1_yku0i"]
 [ext_resource type="Texture2D" uid="uid://swvlj4rv8128" path="res://Assets/sky.png" id="2_35l1h"]
 [ext_resource type="Texture2D" uid="uid://cwg06t4jpfkeg" path="res://Assets/ground.png" id="3_ynnwa"]
 [ext_resource type="Script" path="res://Player/healthBar.gd" id="4_1ina2"]
@@ -9,6 +10,7 @@
 [ext_resource type="Script" path="res://Bullet/bulletBar.gd" id="6_a6c83"]
 [ext_resource type="PackedScene" uid="uid://b4e70m8gear3i" path="res://Camera2D/camera_2d.tscn" id="6_pf4wq"]
 [ext_resource type="PackedScene" uid="uid://cb7exhvs2ybjb" path="res://Enemy/Enemy.tscn" id="7_aoeoj"]
+[ext_resource type="Script" path="res://UI/tryCount.gd" id="7_tjwea"]
 [ext_resource type="PackedScene" uid="uid://cr07u451dalw0" path="res://Traps/Spike/spike.tscn" id="8_adwex"]
 [ext_resource type="PackedScene" uid="uid://btopemn7cld2t" path="res://ItemBox/item_box.tscn" id="9_eglgx"]
 [ext_resource type="PackedScene" uid="uid://c8hnlsk5h60yf" path="res://Terrain/MovingPlatform/MovingPlatform.tscn" id="10_lv885"]
@@ -148,6 +150,7 @@ sources/1 = SubResource("TileSetScenesCollectionSource_tkn3e")
 sources/3 = SubResource("TileSetScenesCollectionSource_fc057")
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_yku0i")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
@@ -205,14 +208,72 @@ text = "F4 (FullScreen)"
 flat = true
 script = ExtResource("15_px4pb")
 
-[node name="GUI" type="Node2D" parent="CanvasLayer2"]
+[node name="LEVEL" type="Node2D" parent="CanvasLayer2/Buttons"]
+position = Vector2(0, 28)
 
-[node name="LEVEL" type="Label" parent="CanvasLayer2/GUI"]
+[node name="LEVEL" type="Label" parent="CanvasLayer2/Buttons/LEVEL"]
 offset_left = 24.0
 offset_top = 16.0
 offset_right = 82.0
 offset_bottom = 42.0
 text = "Level: 2"
+
+[node name="HEALTH" type="Node2D" parent="CanvasLayer2/Buttons"]
+position = Vector2(0, 32)
+
+[node name="HP" type="Label" parent="CanvasLayer2/Buttons/HEALTH"]
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 82.0
+offset_bottom = 74.0
+text = "HP:"
+
+[node name="value" type="Label" parent="CanvasLayer2/Buttons/HEALTH" node_paths=PackedStringArray("player")]
+offset_left = 64.0
+offset_top = 47.0
+offset_right = 122.0
+offset_bottom = 73.0
+text = "5
+"
+script = ExtResource("4_1ina2")
+player = NodePath("../../../../Player")
+
+[node name="BULLETS" type="Node2D" parent="CanvasLayer2/Buttons"]
+position = Vector2(0, 64)
+
+[node name="bullets" type="Label" parent="CanvasLayer2/Buttons/BULLETS"]
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 82.0
+offset_bottom = 74.0
+text = "Munição:"
+
+[node name="value" type="Label" parent="CanvasLayer2/Buttons/BULLETS" node_paths=PackedStringArray("player")]
+offset_left = 103.0
+offset_top = 49.0
+offset_right = 161.0
+offset_bottom = 75.0
+text = "5"
+script = ExtResource("6_a6c83")
+player = NodePath("../../../../Player")
+
+[node name="TENTATIVAS" type="Node2D" parent="CanvasLayer2/Buttons"]
+position = Vector2(-2, -33)
+
+[node name="TENTATIVAS" type="Label" parent="CanvasLayer2/Buttons/TENTATIVAS"]
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 190.0
+offset_bottom = 74.0
+text = "Tentativas Restantes:"
+
+[node name="value" type="Label" parent="CanvasLayer2/Buttons/TENTATIVAS"]
+offset_left = 200.0
+offset_top = 48.0
+offset_right = 258.0
+offset_bottom = 74.0
+text = "3"
+script = ExtResource("7_tjwea")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer2"]
 
@@ -226,44 +287,6 @@ position = Vector2(-456, -392)
 scale = Vector2(2, 1)
 texture = ExtResource("2_35l1h")
 centered = false
-
-[node name="HEALTH" type="Node2D" parent="CanvasLayer2"]
-
-[node name="HP" type="Label" parent="CanvasLayer2/HEALTH"]
-offset_left = 24.0
-offset_top = 48.0
-offset_right = 82.0
-offset_bottom = 74.0
-text = "HP:"
-
-[node name="value" type="Label" parent="CanvasLayer2/HEALTH" node_paths=PackedStringArray("player")]
-offset_left = 64.0
-offset_top = 47.0
-offset_right = 122.0
-offset_bottom = 73.0
-text = "5
-"
-script = ExtResource("4_1ina2")
-player = NodePath("../../../Player")
-
-[node name="BULLETS" type="Node2D" parent="CanvasLayer2"]
-position = Vector2(0, 32)
-
-[node name="bullets" type="Label" parent="CanvasLayer2/BULLETS"]
-offset_left = 24.0
-offset_top = 48.0
-offset_right = 82.0
-offset_bottom = 74.0
-text = "Munição:"
-
-[node name="value" type="Label" parent="CanvasLayer2/BULLETS" node_paths=PackedStringArray("player")]
-offset_left = 103.0
-offset_top = 49.0
-offset_right = 161.0
-offset_bottom = 75.0
-text = "5"
-script = ExtResource("6_a6c83")
-player = NodePath("../../../Player")
 
 [node name="elements" type="TileMap" parent="." groups=["tilemap"]]
 modulate = Color(0, 0, 0, 1)
