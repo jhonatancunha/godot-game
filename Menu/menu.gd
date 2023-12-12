@@ -4,7 +4,8 @@ extends Control
 
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if not OS.has_feature("mobile"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_play_pressed() -> void:
 	GameController.reset_play_again()

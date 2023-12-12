@@ -3,6 +3,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	if not OS.has_feature("mobile"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_try_again_pressed() -> void:
