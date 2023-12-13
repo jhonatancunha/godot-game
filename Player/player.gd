@@ -185,4 +185,6 @@ func increase_health():
 		health += 1
 		healthChanged.emit()
 		
-		
+func increase_bullets():
+	bullets += 50
+	print(bullets)

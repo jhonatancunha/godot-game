@@ -52,12 +52,6 @@ func update_animation():
 		animationPlayer.play("walk")
 
 
-#func detect_turn_around():
-#	if (not $RayCast2D.is_colliding() or $RayCast2D2H.is_colliding()) and is_on_floor():
-#		direction = -direction
-#		scale.x = -scale.x
-#		global_position.x += direction * 40
-
 func detect_turn_around():
 	var collision = $RayCast2D2H.is_colliding()
 	var colliding_body = $RayCast2D2H.get_collider()
