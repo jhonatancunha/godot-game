@@ -19,7 +19,6 @@ static var dispatchEvent = true
 # PUBLIC METHODS
 
 static func go_next_level() -> void:
-	print(get_current_level())
 	if dispatchEvent == true:
 		dispatchEvent = false
 		currentLevel += 1

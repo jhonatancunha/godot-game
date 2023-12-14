@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://cb7exhvs2ybjb"]
+[gd_scene load_steps=13 format=3 uid="uid://d038aa4nuh0dq"]
 
-[ext_resource type="Script" path="res://Enemy/Enemy.gd" id="1_68x04"]
-[ext_resource type="Texture2D" uid="uid://btt2056o0vn2k" path="res://Player/player_movements.png" id="2_u8vfk"]
+[ext_resource type="Script" path="res://EnemyBoss/EnemyBoss.gd" id="1_200bp"]
+[ext_resource type="Texture2D" uid="uid://dmprlguicdvnq" path="res://EnemyBoss/boss_movements.png" id="2_f73il"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spikd"]
 size = Vector2(26, 65)
@@ -147,14 +147,15 @@ _data = {
 size = Vector2(25, 42.75)
 
 [node name="EnemyBoss" type="CharacterBody2D" groups=["enemy"]]
-script = ExtResource("1_68x04")
+script = ExtResource("1_200bp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.686275, 0.027451, 0, 1)
+modulate = Color(0.65098, 0.0901961, 0.211765, 1)
+self_modulate = Color(0.670588, 0.364706, 0.211765, 1)
 texture_filter = 1
 position = Vector2(-8.5, -19)
 scale = Vector2(1.28125, 2.1875)
-texture = ExtResource("2_u8vfk")
+texture = ExtResource("2_f73il")
 hframes = 10
 vframes = 6
 

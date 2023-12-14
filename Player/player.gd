@@ -187,4 +187,3 @@ func increase_health():
 		
 func increase_bullets():
 	bullets += 50
-	print(bullets)

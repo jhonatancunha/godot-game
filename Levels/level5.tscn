@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6egomahpawdw"]
+[gd_scene load_steps=16 format=3 uid="uid://c6egomahpawdw"]
 
 [ext_resource type="PackedScene" uid="uid://c3ilfe2qoeq7h" path="res://UI/MobileInput/ButtonA.tscn" id="1_bdqv4"]
 [ext_resource type="Script" path="res://Levels/level_settings.gd" id="1_l4tu0"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cr07u451dalw0" path="res://Traps/Spike/spike.tscn" id="8_1c7kp"]
 [ext_resource type="PackedScene" uid="uid://btopemn7cld2t" path="res://ItemBox/item_box.tscn" id="9_oqwmy"]
 [ext_resource type="PackedScene" uid="uid://c6sj7ksv8ikef" path="res://Terrain/Portal/portal.tscn" id="11_nb4hp"]
+[ext_resource type="PackedScene" uid="uid://d038aa4nuh0dq" path="res://EnemyBoss/EnemyBoss.tscn" id="12_unsq8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_igheu"]
 texture = ExtResource("3_kvtk4")
@@ -494,3 +495,9 @@ position = Vector2(625, 289)
 scale = Vector2(1.72, 1.69711)
 collision_layer = 2
 collision_mask = 2
+
+[node name="EnemyBoss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("12_unsq8")]
+position = Vector2(2927, 442)
+scale = Vector2(2, 2)
+player = NodePath("../Player")
+minFollowDistance = 300
