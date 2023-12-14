@@ -315,21 +315,18 @@ rotation = 3.14159
 scale = Vector2(0.952246, 0.94832)
 
 [node name="Enemy" parent="." instance=ExtResource("7_aoeoj")]
-modulate = Color(0.941176, 0, 0.0745098, 1)
 position = Vector2(723, 384)
 scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 2
 
 [node name="Enemy2" parent="." instance=ExtResource("7_aoeoj")]
-modulate = Color(0.941176, 0, 0.0745098, 1)
 position = Vector2(1503, 349)
 scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 2
 
 [node name="Enemy3" parent="." instance=ExtResource("7_aoeoj")]
-modulate = Color(0.941176, 0, 0.0745098, 1)
 position = Vector2(1663, 89)
 scale = Vector2(1.5, 1.5)
 collision_layer = 2

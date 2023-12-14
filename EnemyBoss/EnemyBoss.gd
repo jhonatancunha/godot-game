@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 
 @export var speed: float = 100.0
-@export var health: int = 6
+@export var maxHealth: int = 6
 @export var player: Player
 @export var minFollowDistance = 600
 
@@ -11,6 +11,7 @@ extends CharacterBody2D
 @onready var animationPlayer = $AnimationPlayer
 @onready var sprite = $Sprite2D
 
+var health: int = maxHealth
 var start_marker: Marker2D
 var end_marker: Marker2D
 var current_marker: Marker2D
@@ -34,9 +35,9 @@ var playerCameFromRight = false
 var playerCameFromLeft = false
 
 func _physics_process(delta: float) -> void:
+	$HealthBar.value = (health * 100) / maxHealth
 	
 	player_position = player.position
-	
 	target_position = (player_position - position).normalized()
 
 	

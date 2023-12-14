@@ -3,11 +3,12 @@ extends CharacterBody2D
 
 
 @export var speed: float = 100.0
-@export var health: int = 6
+@export var maxHealth: int = 6
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var sprite = $Sprite2D
 
+var health: int = maxHealth
 var start_marker: Marker2D
 var end_marker: Marker2D
 var current_marker: Marker2D
@@ -24,7 +25,11 @@ var direction: int = 1
 # knockback amount when get damage
 var knockback_distance = 60
 
+
+
+
 func _physics_process(delta: float) -> void:
+	$HealthBar.value = (health * 100) / maxHealth
 	move_enemy(delta)
 	detect_turn_around()
 	if is_punching:

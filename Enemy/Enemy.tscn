@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cb7exhvs2ybjb"]
+[gd_scene load_steps=17 format=3 uid="uid://cb7exhvs2ybjb"]
 
 [ext_resource type="Script" path="res://Enemy/Enemy.gd" id="1_68x04"]
 [ext_resource type="Texture2D" uid="uid://btt2056o0vn2k" path="res://Player/player_movements.png" id="2_u8vfk"]
@@ -146,6 +146,18 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0hxh"]
 size = Vector2(25, 42.75)
 
+[sub_resource type="Gradient" id="Gradient_lrnap"]
+colors = PackedColorArray(0, 0, 0, 0.796078, 0, 0, 0, 0.796078)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_air3m"]
+gradient = SubResource("Gradient_lrnap")
+
+[sub_resource type="Gradient" id="Gradient_s0lv0"]
+colors = PackedColorArray(0, 0.45098, 0.227451, 1, 0, 0.45098, 0.227451, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tpbwr"]
+gradient = SubResource("Gradient_s0lv0")
+
 [node name="EnemyBoss" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_68x04")
 
@@ -188,5 +200,15 @@ position = Vector2(-0.500009, -17)
 rotation = -3.14159
 scale = Vector2(1, -0.421053)
 shape = SubResource("RectangleShape2D_j0hxh")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -40.0
+offset_top = -64.0
+offset_right = 24.0
+scale = Vector2(1.08, 0.12)
+value = 99.0
+rounded = true
+texture_under = SubResource("GradientTexture2D_air3m")
+texture_progress = SubResource("GradientTexture2D_tpbwr")
 
 [connection signal="area_entered" from="AttackArea2D" to="." method="_on_attack_area_2d_area_entered"]
