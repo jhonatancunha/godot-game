@@ -44,20 +44,24 @@ func _physics_process(delta: float) -> void:
 	if position.distance_to(player_position) > minFollowDistance:
 		detect_turn_around()
 	else:
+		print("player is right", player_position.x > position.x)
+		
 		if player_position.x > position.x:
-			if not playerCameFromRight:
-				sprite.flip_h = false
-#				scale.x = -scale.x if playerCameFromLeft else scale.x
-				direction = 1
-				playerCameFromRight = true
-			playerCameFromLeft = false
+#			if not playerCameFromRight:
+#				sprite.flip_h = false if sprite.flip_h else true
+			sprite.flip_h = false
+#				scale.x = scale.x if scale.x > 0 else -scale.x]
+			direction = 1
+#				playerCameFromRight = true
+#			playerCameFromLeft = false
 		else:
-			if not playerCameFromLeft:
-				sprite.flip_h = true
-#				scale.x = scale.x if playerCameFromRight else -scale.x
-				direction = -1
-				playerCameFromLeft = true
-			playerCameFromRight = false
+#			if not playerCameFromLeft:
+#				sprite.flip_h = true if sprite.flip_h else false
+#				scale.x = -scale.x if scale.x > 0 else scale.x
+			sprite.flip_h = true if not sprite.flip_h else sprite.flip_h 
+			direction = -1
+#				playerCameFromLeft = true
+#			playerCameFromRight = false
 #
 	move_enemy(delta)
 	
@@ -68,7 +72,6 @@ func _physics_process(delta: float) -> void:
 
 
 func move_enemy(delta: float) -> void:
-#	update_animation()
 	velocity.x = direction * speed
 	velocity.y += gravity * delta
 
@@ -76,27 +79,18 @@ func move_enemy(delta: float) -> void:
 	last_position = global_position
 
 
-func update_animation():
-	if direction == 1:
-		sprite.flip_h = false
-	elif direction == -1:
-		sprite.flip_h = true
-	
-	if not is_punching:						
-		animationPlayer.play("walk")
-
 
 func detect_turn_around():
 	var collision = $RayCast2D2H.is_colliding()
 	var colliding_body = $RayCast2D2H.get_collider()
 
 	if collision and colliding_body.is_in_group("IgnoreRaycastGroup") and is_on_floor():		
-		print("not colidding")
 		return
 
 	if (not $RayCast2D.is_colliding() or $RayCast2D2H.is_colliding()) and is_on_floor():
 		direction = -direction
-		scale.x = -scale.x
+		sprite.flip_h = !sprite.flip_h 
+#		scale.x = -scale.x
 		global_position.x += direction * 40
 
 func take_damage():

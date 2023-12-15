@@ -11,6 +11,7 @@ static var levels = {
 	4: "res://Levels/level4.tscn",
 	5: "res://Levels/level5.tscn",
 	6: "res://Levels/level_final.tscn",
+	7: "res://main.tscn"
 }
 
 static var dispatchEvent = true
@@ -24,7 +25,10 @@ static func go_next_level() -> void:
 		dispatchEvent = false
 		currentLevel += 1
 		dispatchEvent = true
-	
+
+static func go_to_level(level: int) -> void:
+	currentLevel = level
+
 static func go_back_level() -> void:
 	currentLevel -= 1
 
