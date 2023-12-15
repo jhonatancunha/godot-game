@@ -10,6 +10,7 @@ static var levels = {
 	3: "res://Levels/level3.tscn",
 	4: "res://Levels/level4.tscn",
 	5: "res://Levels/level5.tscn",
+	6: "res://Levels/level_final.tscn",
 }
 
 static var dispatchEvent = true

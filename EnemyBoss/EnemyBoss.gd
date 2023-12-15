@@ -46,13 +46,15 @@ func _physics_process(delta: float) -> void:
 	else:
 		if player_position.x > position.x:
 			if not playerCameFromRight:
-				scale.x = -scale.x if playerCameFromLeft else scale.x
+				sprite.flip_h = false
+#				scale.x = -scale.x if playerCameFromLeft else scale.x
 				direction = 1
 				playerCameFromRight = true
 			playerCameFromLeft = false
 		else:
 			if not playerCameFromLeft:
-				scale.x = -scale.x if playerCameFromRight else scale.x
+				sprite.flip_h = true
+#				scale.x = scale.x if playerCameFromRight else -scale.x
 				direction = -1
 				playerCameFromLeft = true
 			playerCameFromRight = false
@@ -93,11 +95,9 @@ func detect_turn_around():
 		return
 
 	if (not $RayCast2D.is_colliding() or $RayCast2D2H.is_colliding()) and is_on_floor():
-		print("colidiu")
 		direction = -direction
 		scale.x = -scale.x
 		global_position.x += direction * 40
-
 
 func take_damage():
 	health -= 1
