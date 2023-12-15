@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.x = 0
 
-	
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -176,9 +176,10 @@ func die():
 func take_damage():
 	if not is_attacking:
 		health -= 1
+		$Sounds/Hit.play()
 		healthChanged.emit()
-	if health <= 0:
-		die()
+		if health <= 0:
+			die()
 
 func increase_health():
 	if health < MAX_HELTH:
