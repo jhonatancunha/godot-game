@@ -481,9 +481,11 @@ position = Vector2(7125, 1110)
 
 [node name="portal" parent="." instance=ExtResource("11_nb4hp")]
 position = Vector2(3910, -31)
+targetLevel = 2
 
 [node name="portal2" parent="." instance=ExtResource("11_nb4hp")]
 position = Vector2(7988, 832)
+targetLevel = 6
 
 [node name="Enemy2" parent="." instance=ExtResource("7_yx1v0")]
 modulate = Color(0.941176, 0, 0.0745098, 1)

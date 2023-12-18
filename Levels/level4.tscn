@@ -607,5 +607,6 @@ position = Vector2(1172, 566)
 
 [node name="portal" parent="." instance=ExtResource("11_2u8ek")]
 position = Vector2(5603, 412)
+targetLevel = 5
 
 [editable path="PlatformTween"]
