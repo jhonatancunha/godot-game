@@ -1,7 +1,6 @@
 class_name Enemy
 extends CharacterBody2D
 
-
 @export var speed: float = 100.0
 @export var maxHealth: int = 6
 
