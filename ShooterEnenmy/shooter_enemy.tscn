@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ShooterEnenmy/shooter_enemy.gd" id="1_nrvdx"]
 [ext_resource type="Texture2D" uid="uid://btt2056o0vn2k" path="res://Player/player_movements.png" id="2_bi456"]
-[ext_resource type="AudioStream" uid="uid://dij0sg3o67spu" path="res://Assets/player_hit.wav" id="3_6pda7"]
+[ext_resource type="AudioStream" uid="uid://b8mj2w7ydlkte" path="res://Assets/player_hit.mp3" id="3_6pda7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spikd"]
 size = Vector2(26, 65)
