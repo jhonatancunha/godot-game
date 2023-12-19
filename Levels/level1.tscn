@@ -539,6 +539,18 @@ autoplay = true
 [node name="ShooterEnemy" parent="." instance=ExtResource("18_dos4m")]
 position = Vector2(746, 578)
 
+[node name="Enemy2" parent="." instance=ExtResource("3_wwq43")]
+position = Vector2(2019, 553)
+scale = Vector2(1.5, 1.5)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_wwq43")]
+position = Vector2(3677, 346)
+scale = Vector2(1.5, 1.5)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_wwq43")]
+position = Vector2(2876, 468)
+scale = Vector2(1.5, 1.5)
+
 [connection signal="button_down" from="CanvasLayer2/Buttons/FullScren" to="CanvasLayer2/Buttons/FullScren" method="_on_button_down"]
 
 [editable path="Enemy"]
