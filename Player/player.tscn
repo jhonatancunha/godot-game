@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://btt2056o0vn2k" path="res://Player/player_movements.png" id="2_4dlf7"]
 [ext_resource type="AudioStream" uid="uid://dhe4h41gmxrky" path="res://Assets/punch.ogg" id="3_0afqy"]
 [ext_resource type="AudioStream" uid="uid://ccx2vjf75t5md" path="res://Assets/jump.wav" id="3_fx7us"]
-[ext_resource type="AudioStream" uid="uid://dij0sg3o67spu" path="res://Assets/player_hit.wav" id="5_hm1l4"]
+[ext_resource type="AudioStream" uid="uid://b8mj2w7ydlkte" path="res://Assets/player_hit.mp3" id="5_1igil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8clb"]
 size = Vector2(27, 53)
@@ -209,7 +209,7 @@ volume_db = 24.0
 pitch_scale = 0.65
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource("5_hm1l4")
+stream = ExtResource("5_1igil")
 volume_db = 14.162
 
 [connection signal="area_entered" from="PunchArea2D" to="." method="_on_punch_area_2d_area_entered"]
