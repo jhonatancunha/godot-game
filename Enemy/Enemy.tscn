@@ -159,6 +159,7 @@ colors = PackedColorArray(0, 0.45098, 0.227451, 1, 0, 0.45098, 0.227451, 1)
 gradient = SubResource("Gradient_s0lv0")
 
 [node name="EnemyBoss" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 2
 script = ExtResource("1_68x04")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

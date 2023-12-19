@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cs73r0vuy22c"]
+[gd_scene load_steps=24 format=3 uid="uid://cs73r0vuy22c"]
 
 [ext_resource type="PackedScene" uid="uid://c3ilfe2qoeq7h" path="res://UI/MobileInput/ButtonA.tscn" id="1_fgh8s"]
 [ext_resource type="Script" path="res://Levels/level_settings.gd" id="1_uthcg"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Player/healthBar.gd" id="11_cs6yt"]
 [ext_resource type="AudioStream" uid="uid://cy32u6ys2jitv" path="res://Assets/level 3.wav" id="14_n3kf3"]
 [ext_resource type="PackedScene" uid="uid://c6sj7ksv8ikef" path="res://Terrain/Portal/portal.tscn" id="15_ylfrh"]
+[ext_resource type="PackedScene" uid="uid://cb7exhvs2ybjb" path="res://Enemy/Enemy.tscn" id="18_5cj4r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_igheu"]
 texture = ExtResource("4_nb8gf")
@@ -336,6 +337,36 @@ targetLevel = 4
 [node name="portal2" parent="." instance=ExtResource("15_ylfrh")]
 position = Vector2(3837, 860)
 targetLevel = 2
+
+[node name="Enemy6" parent="." instance=ExtResource("18_5cj4r")]
+position = Vector2(2418, 709)
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Enemy7" parent="." instance=ExtResource("18_5cj4r")]
+position = Vector2(1451, 705)
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Enemy8" parent="." instance=ExtResource("18_5cj4r")]
+position = Vector2(3459, 848)
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Enemy9" parent="." instance=ExtResource("18_5cj4r")]
+position = Vector2(3701, 1271)
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Enemy10" parent="." instance=ExtResource("18_5cj4r")]
+position = Vector2(1942, 649)
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 2
 
 [connection signal="button_down" from="CanvasLayer2/Buttons/FullScren" to="CanvasLayer2/Buttons/FullScren" method="_on_button_down"]
 

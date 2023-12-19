@@ -333,6 +333,24 @@ scale = Vector2(1.5, 1.5)
 collision_layer = 2
 collision_mask = 2
 
+[node name="Enemy4" parent="." instance=ExtResource("7_aoeoj")]
+position = Vector2(2076, 620)
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Enemy5" parent="." instance=ExtResource("7_aoeoj")]
+position = Vector2(3175, 630)
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Enemy6" parent="." instance=ExtResource("7_aoeoj")]
+position = Vector2(3493, -18)
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 2
+
 [node name="BAU" parent="." instance=ExtResource("9_eglgx")]
 position = Vector2(3352, 632)
 

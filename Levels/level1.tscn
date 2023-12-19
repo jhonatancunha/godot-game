@@ -313,10 +313,8 @@ position = Vector2(24, 432)
 scale = Vector2(1.5, 1.5)
 
 [node name="Enemy" parent="." instance=ExtResource("3_wwq43")]
-position = Vector2(723, 384)
+position = Vector2(866, 422)
 scale = Vector2(1.5, 1.5)
-collision_layer = 2
-collision_mask = 2
 
 [node name="HealthBar" parent="Enemy" index="7"]
 value = 50.0
@@ -545,6 +543,14 @@ scale = Vector2(1.5, 1.5)
 
 [node name="Enemy3" parent="." instance=ExtResource("3_wwq43")]
 position = Vector2(3677, 346)
+scale = Vector2(1.5, 1.5)
+
+[node name="Enemy5" parent="." instance=ExtResource("3_wwq43")]
+position = Vector2(404, 412)
+scale = Vector2(1.5, 1.5)
+
+[node name="Enemy6" parent="." instance=ExtResource("3_wwq43")]
+position = Vector2(610, 412)
 scale = Vector2(1.5, 1.5)
 
 [node name="Enemy4" parent="." instance=ExtResource("3_wwq43")]
