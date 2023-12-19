@@ -55,7 +55,6 @@ layout_mode = 2
 text = "Sair"
 
 [connection signal="pressed" from="Control/CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/Instructions" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Control/CenterContainer/VBoxContainer/Instructions" to="." method="_on_instructions_pressed"]
 [connection signal="pressed" from="Control/CenterContainer/VBoxContainer/Credits" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Control/CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
