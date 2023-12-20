@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dofuiaen7drac"]
+[gd_scene load_steps=21 format=3 uid="uid://dofuiaen7drac"]
 
 [ext_resource type="Script" path="res://Levels/level_settings.gd" id="1_fkpva"]
 [ext_resource type="PackedScene" uid="uid://blx3wb41bsdr7" path="res://Player/player.tscn" id="2_7myil"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://c3ilfe2qoeq7h" path="res://UI/MobileInput/ButtonA.tscn" id="10_cbs0k"]
 [ext_resource type="PackedScene" uid="uid://c6sj7ksv8ikef" path="res://Terrain/Portal/portal.tscn" id="12_ah5y3"]
 [ext_resource type="AudioStream" uid="uid://b6a4l4d6ux37g" path="res://Assets/level1.wav" id="16_du3ff"]
-[ext_resource type="PackedScene" uid="uid://bv2urlolh14ef" path="res://ShooterEnenmy/shooter_enemy.tscn" id="18_dos4m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_igheu"]
 texture = ExtResource("2_ybt7t")
@@ -535,12 +534,6 @@ stream = ExtResource("16_du3ff")
 volume_db = -5.701
 autoplay = true
 
-[node name="ShooterEnemy" parent="." instance=ExtResource("18_dos4m")]
-position = Vector2(744, 582)
-
-[node name="Marker2D" parent="ShooterEnemy" index="5"]
-position = Vector2(-37.7724, -45.1494)
-
 [node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_wwq43")]
 position = Vector2(2019, 553)
 scale = Vector2(1.5, 1.5)
@@ -569,4 +562,3 @@ player = NodePath("../Player")
 [connection signal="button_down" from="CanvasLayer2/Buttons/FullScren" to="CanvasLayer2/Buttons/FullScren" method="_on_button_down"]
 
 [editable path="Enemy"]
-[editable path="ShooterEnemy"]

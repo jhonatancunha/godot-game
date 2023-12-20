@@ -687,14 +687,12 @@ position = Vector2(5532, 455)
 
 [node name="CollisionShape2D" parent="ShooterEnemy/Area2D" index="0"]
 position = Vector2(-53.0166, 20.4908)
-scale = Vector2(1, 1)
 
 [node name="ShooterEnemy2" parent="." instance=ExtResource("19_4ille")]
 position = Vector2(3080, 501)
 
 [node name="CollisionShape2D" parent="ShooterEnemy2/Area2D" index="0"]
 position = Vector2(5.44092, 21.0759)
-scale = Vector2(1, 1)
 
 [connection signal="button_down" from="CanvasLayer2/Buttons/FullScren" to="CanvasLayer2/Buttons/FullScren" method="_on_button_down"]
 

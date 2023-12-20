@@ -563,7 +563,6 @@ position = Vector2(4780, 1143)
 
 [node name="CollisionShape2D" parent="ShooterEnemy/Area2D" index="0"]
 position = Vector2(-91.4878, 17.9221)
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" parent="ShooterEnemy/DamageArea" index="0"]
 position = Vector2(-4.6914, -26.5844)
