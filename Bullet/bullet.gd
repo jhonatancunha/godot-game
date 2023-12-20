@@ -36,9 +36,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		queue_free()
 
 
+
 # detecta os inimigos
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	print(area)
-	if area.is_in_group("enemy"):
+	if area.is_in_group("enemy") or area.is_in_group("damage_area"):
 		area.get_parent().take_damage()
 		queue_free()

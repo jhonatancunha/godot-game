@@ -24,6 +24,8 @@ func _ready():
 
 
 func _physics_process(delta):
+	$HealthBar.value = (health * 100) / maxHealth
+	
 	# Verificar se o jogador está na área de detecção
 	if player_in_range:
 		# Se sim, atirar (executar animação "shoot")
@@ -49,13 +51,11 @@ func _physics_process(delta):
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("damage_area"):
-		print("entrou")
 		player_in_range = true
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("damage_area"):
-		print("SAIU")
 		player_in_range = false	
 
 
@@ -73,7 +73,6 @@ func _fire_bullet(dir):
 	bullet.init(dir, bullet_speed)
 	bullet.position = $Marker2D.global_position
 	get_tree().get_root().add_child(bullet)
-
 
 	_can_fire = false
 	if not $Sounds/ShotSound.playing:

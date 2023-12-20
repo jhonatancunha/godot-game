@@ -146,19 +146,20 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0hxh"]
 size = Vector2(25, 42.75)
 
-[sub_resource type="Gradient" id="Gradient_lrnap"]
+[sub_resource type="Gradient" id="Gradient_invvs"]
 colors = PackedColorArray(0, 0, 0, 0.796078, 0, 0, 0, 0.796078)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_air3m"]
-gradient = SubResource("Gradient_lrnap")
+gradient = SubResource("Gradient_invvs")
 
-[sub_resource type="Gradient" id="Gradient_s0lv0"]
+[sub_resource type="Gradient" id="Gradient_u32k1"]
 colors = PackedColorArray(0, 0.45098, 0.227451, 1, 0, 0.45098, 0.227451, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tpbwr"]
-gradient = SubResource("Gradient_s0lv0")
+gradient = SubResource("Gradient_u32k1")
 
 [node name="EnemyBoss" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 2
 script = ExtResource("1_68x04")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

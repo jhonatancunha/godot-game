@@ -347,26 +347,22 @@ scale = Vector2(1.5, 1.5)
 [node name="Enemy" parent="." instance=ExtResource("7_yx1v0")]
 position = Vector2(46, 425)
 scale = Vector2(1.72, 1.69711)
-collision_layer = 2
-collision_mask = 2
+speed = 130.0
 
 [node name="Enemy3" parent="." instance=ExtResource("7_yx1v0")]
 position = Vector2(4348, 1052)
 scale = Vector2(1.72, 1.69711)
-collision_layer = 2
-collision_mask = 2
+speed = 130.0
 
 [node name="Enemy5" parent="." instance=ExtResource("7_yx1v0")]
 position = Vector2(5053, 1058)
 scale = Vector2(1.72, 1.69711)
-collision_layer = 2
-collision_mask = 2
+speed = 130.0
 
 [node name="Enemy6" parent="." instance=ExtResource("7_yx1v0")]
-position = Vector2(6133, 1035)
+position = Vector2(6133, 1038)
 scale = Vector2(1.72, 1.69711)
-collision_layer = 2
-collision_mask = 2
+speed = 130.0
 
 [node name="SPIKES" type="Node2D" parent="."]
 position = Vector2(1472, 74)
@@ -487,15 +483,16 @@ targetLevel = 2
 position = Vector2(7988, 832)
 targetLevel = 6
 
-[node name="Enemy2" parent="." instance=ExtResource("7_yx1v0")]
-modulate = Color(0.941176, 0, 0.0745098, 1)
-position = Vector2(625, 289)
-scale = Vector2(1.72, 1.69711)
-collision_layer = 2
-collision_mask = 2
-
 [node name="EnemyBoss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("12_unsq8")]
 position = Vector2(2927, 442)
 scale = Vector2(2, 2)
+speed = 150.0
+player = NodePath("../Player")
+minFollowDistance = 300
+
+[node name="EnemyBoss2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("12_unsq8")]
+position = Vector2(755, 346)
+scale = Vector2(2, 2)
+speed = 150.0
 player = NodePath("../Player")
 minFollowDistance = 300

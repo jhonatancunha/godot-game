@@ -24,11 +24,13 @@ var direction: int = 1
 # knockback amount when get damage
 var knockback_distance = 60
 
-
+func _ready():
+	self.direction = direction
 
 
 func _physics_process(delta: float) -> void:
 	$HealthBar.value = (health * 100) / maxHealth
+	
 	move_enemy(delta)
 	detect_turn_around()
 	if is_punching:

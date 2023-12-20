@@ -313,10 +313,8 @@ position = Vector2(24, 432)
 scale = Vector2(1.5, 1.5)
 
 [node name="Enemy" parent="." instance=ExtResource("3_wwq43")]
-position = Vector2(723, 384)
+position = Vector2(866, 422)
 scale = Vector2(1.5, 1.5)
-collision_layer = 2
-collision_mask = 2
 
 [node name="HealthBar" parent="Enemy" index="7"]
 value = 50.0
@@ -540,7 +538,27 @@ autoplay = true
 position = Vector2(744, 582)
 
 [node name="Marker2D" parent="ShooterEnemy" index="5"]
-position = Vector2(27.2175, -42.3335)
+position = Vector2(-37.7724, -45.1494)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_wwq43")]
+position = Vector2(2019, 553)
+scale = Vector2(1.5, 1.5)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_wwq43")]
+position = Vector2(3677, 346)
+scale = Vector2(1.5, 1.5)
+
+[node name="Enemy5" parent="." instance=ExtResource("3_wwq43")]
+position = Vector2(404, 412)
+scale = Vector2(1.5, 1.5)
+
+[node name="Enemy6" parent="." instance=ExtResource("3_wwq43")]
+position = Vector2(610, 412)
+scale = Vector2(1.5, 1.5)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_wwq43")]
+position = Vector2(2876, 468)
+scale = Vector2(1.5, 1.5)
 
 [connection signal="button_down" from="CanvasLayer2/Buttons/FullScren" to="CanvasLayer2/Buttons/FullScren" method="_on_button_down"]
 
