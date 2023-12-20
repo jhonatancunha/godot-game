@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c6egomahpawdw"]
+[gd_scene load_steps=23 format=3 uid="uid://c6egomahpawdw"]
 
 [ext_resource type="PackedScene" uid="uid://c3ilfe2qoeq7h" path="res://UI/MobileInput/ButtonA.tscn" id="1_bdqv4"]
 [ext_resource type="Script" path="res://Levels/level_settings.gd" id="1_l4tu0"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://Bullet/bulletBar.gd" id="16_g3o2c"]
 [ext_resource type="Script" path="res://UI/tryCount.gd" id="17_ea1t0"]
 [ext_resource type="AudioStream" uid="uid://doq2uy5towf6g" path="res://Assets/level5.wav" id="18_2borr"]
+[ext_resource type="PackedScene" uid="uid://bv2urlolh14ef" path="res://ShooterEnenmy/shooter_enemy.tscn" id="19_1dxma"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_igheu"]
 texture = ExtResource("3_kvtk4")
@@ -276,25 +277,11 @@ remote_path = NodePath("../../Camera2D")
 position = Vector2(-166, 385)
 scale = Vector2(1.5, 1.5)
 
-[node name="Enemy" parent="." instance=ExtResource("7_yx1v0")]
+[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_yx1v0")]
 position = Vector2(46, 425)
 scale = Vector2(1.72, 1.69711)
 speed = 130.0
-
-[node name="Enemy3" parent="." instance=ExtResource("7_yx1v0")]
-position = Vector2(4348, 1052)
-scale = Vector2(1.72, 1.69711)
-speed = 130.0
-
-[node name="Enemy5" parent="." instance=ExtResource("7_yx1v0")]
-position = Vector2(5053, 1058)
-scale = Vector2(1.72, 1.69711)
-speed = 130.0
-
-[node name="Enemy6" parent="." instance=ExtResource("7_yx1v0")]
-position = Vector2(6133, 1038)
-scale = Vector2(1.72, 1.69711)
-speed = 130.0
+player = NodePath("../Player")
 
 [node name="SPIKES" type="Node2D" parent="."]
 position = Vector2(1472, 74)
@@ -506,7 +493,7 @@ offset_left = 24.0
 offset_top = 17.0
 offset_right = 82.0
 offset_bottom = 43.0
-text = "Level: 3
+text = "Level: 5
 "
 
 [node name="HEALTH" type="Node2D" parent="CanvasLayer2"]
@@ -571,4 +558,26 @@ script = ExtResource("17_ea1t0")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("18_2borr")
 
+[node name="ShooterEnemy" parent="." instance=ExtResource("19_1dxma")]
+position = Vector2(4780, 1143)
+
+[node name="CollisionShape2D" parent="ShooterEnemy/Area2D" index="0"]
+position = Vector2(-91.4878, 17.9221)
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" parent="ShooterEnemy/DamageArea" index="0"]
+position = Vector2(-4.6914, -26.5844)
+
+[node name="ShooterEnemy2" parent="." instance=ExtResource("19_1dxma")]
+position = Vector2(5859, 1141)
+
+[node name="ShooterEnemy3" parent="." instance=ExtResource("19_1dxma")]
+position = Vector2(7029, 1131)
+
+[node name="EnemyBoss3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_yx1v0")]
+position = Vector2(7703, 836)
+player = NodePath("../Player")
+
 [connection signal="button_down" from="CanvasLayer2/Buttons/FullScren" to="CanvasLayer2/Buttons/FullScren" method="_on_button_down"]
+
+[editable path="ShooterEnemy"]

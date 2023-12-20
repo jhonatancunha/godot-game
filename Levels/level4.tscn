@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://xuurhd8o1ash"]
+[gd_scene load_steps=23 format=3 uid="uid://xuurhd8o1ash"]
 
 [ext_resource type="Script" path="res://Levels/level_settings.gd" id="1_8i5pf"]
 [ext_resource type="PackedScene" uid="uid://c3ilfe2qoeq7h" path="res://UI/MobileInput/ButtonA.tscn" id="1_wufyv"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://Bullet/bulletBar.gd" id="16_oqd23"]
 [ext_resource type="Script" path="res://UI/tryCount.gd" id="17_2qjbp"]
 [ext_resource type="AudioStream" uid="uid://c2ue4mk3dlx10" path="res://Assets/level4.wav" id="18_s78cc"]
+[ext_resource type="PackedScene" uid="uid://bv2urlolh14ef" path="res://ShooterEnenmy/shooter_enemy.tscn" id="19_4ille"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_igheu"]
 texture = ExtResource("3_kbxd4")
@@ -276,30 +277,29 @@ remote_path = NodePath("../../Camera2D")
 position = Vector2(-151, 149)
 scale = Vector2(1.5, 1.5)
 
-[node name="Enemy" parent="." instance=ExtResource("7_tdtt3")]
+[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_tdtt3")]
 position = Vector2(723, 384)
 scale = Vector2(1.72, 1.69711)
 collision_mask = 2
+player = NodePath("../Player")
 
-[node name="Enemy2" parent="." instance=ExtResource("7_tdtt3")]
+[node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_tdtt3")]
 position = Vector2(1549, 160)
 scale = Vector2(1.72, 1.69711)
 collision_mask = 2
+player = NodePath("../Player")
 
-[node name="Enemy3" parent="." instance=ExtResource("7_tdtt3")]
-position = Vector2(2785, 372)
-scale = Vector2(1.72, 1.69711)
-collision_mask = 2
-
-[node name="Enemy4" parent="." instance=ExtResource("7_tdtt3")]
+[node name="Enemy4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_tdtt3")]
 position = Vector2(3423, 462)
 scale = Vector2(1.72, 1.69711)
 collision_mask = 2
+player = NodePath("../Player")
 
-[node name="Enemy5" parent="." instance=ExtResource("7_tdtt3")]
+[node name="Enemy5" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_tdtt3")]
 position = Vector2(4887, 388)
 scale = Vector2(1.72, 1.69711)
 collision_mask = 2
+player = NodePath("../Player")
 
 [node name="SPIKES" type="Node2D" parent="."]
 position = Vector2(1472, 74)
@@ -614,7 +614,7 @@ offset_left = 24.0
 offset_top = 17.0
 offset_right = 82.0
 offset_bottom = 43.0
-text = "Level: 3
+text = "Level: 4
 "
 
 [node name="HEALTH" type="Node2D" parent="CanvasLayer2"]
@@ -682,6 +682,22 @@ stream = ExtResource("18_s78cc")
 volume_db = -5.701
 autoplay = true
 
+[node name="ShooterEnemy" parent="." instance=ExtResource("19_4ille")]
+position = Vector2(5532, 455)
+
+[node name="CollisionShape2D" parent="ShooterEnemy/Area2D" index="0"]
+position = Vector2(-53.0166, 20.4908)
+scale = Vector2(1, 1)
+
+[node name="ShooterEnemy2" parent="." instance=ExtResource("19_4ille")]
+position = Vector2(3080, 501)
+
+[node name="CollisionShape2D" parent="ShooterEnemy2/Area2D" index="0"]
+position = Vector2(5.44092, 21.0759)
+scale = Vector2(1, 1)
+
 [connection signal="button_down" from="CanvasLayer2/Buttons/FullScren" to="CanvasLayer2/Buttons/FullScren" method="_on_button_down"]
 
 [editable path="PlatformTween"]
+[editable path="ShooterEnemy"]
+[editable path="ShooterEnemy2"]

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cr1mbpnleryvv"]
+[gd_scene load_steps=4 format=3 uid="uid://cr1mbpnleryvv"]
 
 [ext_resource type="Script" path="res://Scenes/GameOver.gd" id="1_sjorr"]
+[ext_resource type="Script" path="res://button_go_to_menu.gd" id="2_4ri6e"]
+[ext_resource type="AudioStream" uid="uid://bq1cdp1omvr83" path="res://Assets/credits.wav" id="3_q27pr"]
 
 [node name="Credits" type="Node2D"]
 script = ExtResource("1_sjorr")
@@ -129,6 +131,7 @@ theme_override_font_sizes/font_size = 20
 text = "Level 3: https://freesound.org/people/BloodPixelHero/sounds/616049/"
 
 [node name="bullets10" type="Label" parent="bullets10"]
+layout_mode = 0
 offset_top = 38.0
 offset_right = 818.0
 offset_bottom = 72.0
@@ -136,6 +139,7 @@ theme_override_font_sizes/font_size = 20
 text = "Level 4: https://freesound.org/people/SuperGamerSVK/sounds/509925/"
 
 [node name="bullets10" type="Label" parent="bullets10/bullets10"]
+layout_mode = 0
 offset_top = 40.0
 offset_right = 818.0
 offset_bottom = 74.0
@@ -167,9 +171,33 @@ theme_override_font_sizes/font_size = 20
 text = "Player jump: https://freesound.org/people/corpocracy/sounds/403369/"
 
 [node name="bullets13" type="Label" parent="bullets13"]
+layout_mode = 0
 offset_left = -1.0
 offset_top = 37.0
 offset_right = 817.0
 offset_bottom = 71.0
 theme_override_font_sizes/font_size = 20
 text = "Power up: https://freesound.org/people/FartBiscuit1700/sounds/368691/"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonGoToMenu" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 650.0
+offset_right = 777.0
+offset_bottom = 706.0
+theme_override_font_sizes/font_size = 30
+text = "Voltar para o menu"
+script = ExtResource("2_4ri6e")
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("3_q27pr")
+
+[connection signal="pressed" from="Control/ButtonGoToMenu" to="." method="_on_button_go_to_menu_pressed"]

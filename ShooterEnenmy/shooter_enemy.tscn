@@ -144,7 +144,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhmol"]
-size = Vector2(305.5, 24.3733)
+size = Vector2(481.36, 25.1999)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cilw8"]
 size = Vector2(41.3774, 81.7219)
@@ -192,8 +192,7 @@ libraries = {
 position = Vector2(-178.281, -19.6919)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 21.0479)
-scale = Vector2(1, 1)
+position = Vector2(-89.1413, 19.6919)
 shape = SubResource("RectangleShape2D_yhmol")
 
 [node name="DamageArea" type="Area2D" parent="." groups=["enemy"]]

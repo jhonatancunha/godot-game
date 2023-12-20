@@ -315,35 +315,41 @@ rotation = 3.14159
 scale = Vector2(0.952246, 0.94832)
 targetLevel = 3
 
-[node name="Enemy" parent="." instance=ExtResource("7_aoeoj")]
+[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_aoeoj")]
 position = Vector2(723, 384)
 scale = Vector2(1.5, 1.5)
 collision_mask = 2
+player = NodePath("../Player")
 
-[node name="Enemy2" parent="." instance=ExtResource("7_aoeoj")]
+[node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_aoeoj")]
 position = Vector2(1503, 349)
 scale = Vector2(1.5, 1.5)
 collision_mask = 2
+player = NodePath("../Player")
 
-[node name="Enemy3" parent="." instance=ExtResource("7_aoeoj")]
+[node name="Enemy3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_aoeoj")]
 position = Vector2(1663, 89)
 scale = Vector2(1.5, 1.5)
 collision_mask = 2
+player = NodePath("../Player")
 
-[node name="Enemy4" parent="." instance=ExtResource("7_aoeoj")]
+[node name="Enemy4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_aoeoj")]
 position = Vector2(2076, 620)
 scale = Vector2(1.5, 1.5)
 collision_mask = 2
+player = NodePath("../Player")
 
-[node name="Enemy5" parent="." instance=ExtResource("7_aoeoj")]
+[node name="Enemy5" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_aoeoj")]
 position = Vector2(3175, 630)
 scale = Vector2(1.5, 1.5)
 collision_mask = 2
+player = NodePath("../Player")
 
-[node name="Enemy6" parent="." instance=ExtResource("7_aoeoj")]
+[node name="Enemy6" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_aoeoj")]
 position = Vector2(3493, -18)
 scale = Vector2(1.5, 1.5)
 collision_mask = 2
+player = NodePath("../Player")
 
 [node name="BAU" parent="." instance=ExtResource("9_eglgx")]
 position = Vector2(3352, 632)
