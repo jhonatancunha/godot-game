@@ -18,7 +18,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		if not opened:
 			opened = true
 			var chosen_option = options[randi_range(0, 3)]
-			print(chosen_option)
+			$Sounds/PowerUp.play()
 			if chosen_option == 'heatlh':
 				area.get_parent().increase_health()
 			elif chosen_option == 'bullets':

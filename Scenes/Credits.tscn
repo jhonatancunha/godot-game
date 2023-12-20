@@ -1,0 +1,175 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr1mbpnleryvv"]
+
+[ext_resource type="Script" path="res://Scenes/GameOver.gd" id="1_sjorr"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_sjorr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -201.0
+offset_top = -85.0
+offset_right = -161.0
+offset_bottom = -45.0
+scale = Vector2(81.1616, 21.7155)
+color = Color(0.176419, 0.176419, 0.176419, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 466.0
+offset_top = 5.0
+offset_right = 533.0
+offset_bottom = 31.0
+scale = Vector2(4.48, 4.48)
+text = "Créditos"
+
+[node name="bullets" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 118.0
+offset_right = 135.0
+offset_bottom = 167.0
+theme_override_font_sizes/font_size = 33
+text = "Assets:"
+
+[node name="bullets2" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 179.0
+offset_right = 304.0
+offset_bottom = 213.0
+theme_override_font_sizes/font_size = 20
+text = "Player: autoria própria"
+
+[node name="bullets" type="Label" parent="bullets2"]
+layout_mode = 0
+offset_left = 398.0
+offset_top = -58.0
+offset_right = 509.0
+offset_bottom = -9.0
+theme_override_font_sizes/font_size = 33
+text = "Áudios"
+
+[node name="bullets2" type="Label" parent="bullets2"]
+layout_mode = 0
+offset_left = 436.0
+offset_top = -1.0
+offset_right = 1187.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 20
+text = "Player punch: https://freesound.org/people/MakoFox/sounds/263516/"
+
+[node name="bullets2" type="Label" parent="bullets2/bullets2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 43.0
+offset_right = 820.0
+offset_bottom = 77.0
+theme_override_font_sizes/font_size = 20
+text = "Player shot: https://freesound.org/people/malatestinic.com/sounds/481584/"
+
+[node name="bullets3" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 399.0
+offset_right = 327.0
+offset_bottom = 433.0
+theme_override_font_sizes/font_size = 20
+text = "ItemBox: autoria própria"
+
+[node name="bullets4" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 355.0
+offset_right = 327.0
+offset_bottom = 389.0
+theme_override_font_sizes/font_size = 20
+text = "ItemBox: autoria própria"
+
+[node name="bullets5" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 311.0
+offset_right = 359.0
+offset_bottom = 345.0
+theme_override_font_sizes/font_size = 20
+text = "EnemyBoss: autoria própria"
+
+[node name="bullets6" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 267.0
+offset_right = 392.0
+offset_bottom = 301.0
+theme_override_font_sizes/font_size = 20
+text = "ShooterEnemy: autoria própria"
+
+[node name="bullets7" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 223.0
+offset_right = 309.0
+offset_bottom = 257.0
+theme_override_font_sizes/font_size = 20
+text = "Enemy: autoria própria"
+
+[node name="bullets8" type="Label" parent="."]
+offset_left = 507.0
+offset_top = 588.0
+offset_right = 1325.0
+offset_bottom = 622.0
+theme_override_font_sizes/font_size = 20
+text = "Player Hit: https://freesound.org/people/EvilOldScratch/sounds/667697/"
+
+[node name="bullets9" type="Label" parent="."]
+offset_left = 506.0
+offset_top = 545.0
+offset_right = 1324.0
+offset_bottom = 579.0
+theme_override_font_sizes/font_size = 20
+text = "Level Final: https://freesound.org/people/TiagoThanos/sounds/571222/"
+
+[node name="bullets10" type="Label" parent="."]
+offset_left = 505.0
+offset_top = 423.0
+offset_right = 1323.0
+offset_bottom = 457.0
+theme_override_font_sizes/font_size = 20
+text = "Level 3: https://freesound.org/people/BloodPixelHero/sounds/616049/"
+
+[node name="bullets10" type="Label" parent="bullets10"]
+offset_top = 38.0
+offset_right = 818.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 20
+text = "Level 4: https://freesound.org/people/SuperGamerSVK/sounds/509925/"
+
+[node name="bullets10" type="Label" parent="bullets10/bullets10"]
+offset_top = 40.0
+offset_right = 818.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 20
+text = "Level 5: https://freesound.org/people/BloodPixelHero/sounds/707651/"
+
+[node name="bullets11" type="Label" parent="."]
+offset_left = 504.0
+offset_top = 380.0
+offset_right = 1322.0
+offset_bottom = 414.0
+theme_override_font_sizes/font_size = 20
+text = "Level 2: https://freesound.org/people/BloodPixelHero/sounds/615013/"
+
+[node name="bullets12" type="Label" parent="."]
+offset_left = 503.0
+offset_top = 337.0
+offset_right = 1321.0
+offset_bottom = 371.0
+theme_override_font_sizes/font_size = 20
+text = "Level 1: https://freesound.org/people/BloodPixelHero/sounds/610068/"
+
+[node name="bullets13" type="Label" parent="."]
+offset_left = 502.0
+offset_top = 264.0
+offset_right = 1320.0
+offset_bottom = 298.0
+theme_override_font_sizes/font_size = 20
+text = "Player jump: https://freesound.org/people/corpocracy/sounds/403369/"
+
+[node name="bullets13" type="Label" parent="bullets13"]
+offset_left = -1.0
+offset_top = 37.0
+offset_right = 817.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 20
+text = "Power up: https://freesound.org/people/FartBiscuit1700/sounds/368691/"

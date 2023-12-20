@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c6egomahpawdw"]
+[gd_scene load_steps=22 format=3 uid="uid://c6egomahpawdw"]
 
 [ext_resource type="PackedScene" uid="uid://c3ilfe2qoeq7h" path="res://UI/MobileInput/ButtonA.tscn" id="1_bdqv4"]
 [ext_resource type="Script" path="res://Levels/level_settings.gd" id="1_l4tu0"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Player/healthBar.gd" id="15_27qyg"]
 [ext_resource type="Script" path="res://Bullet/bulletBar.gd" id="16_g3o2c"]
 [ext_resource type="Script" path="res://UI/tryCount.gd" id="17_ea1t0"]
+[ext_resource type="AudioStream" uid="uid://doq2uy5towf6g" path="res://Assets/level5.wav" id="18_2borr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_igheu"]
 texture = ExtResource("3_kvtk4")
@@ -564,5 +565,10 @@ offset_right = 258.0
 offset_bottom = 74.0
 text = "3"
 script = ExtResource("17_ea1t0")
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("18_2borr")
 
 [connection signal="button_down" from="CanvasLayer2/Buttons/FullScren" to="CanvasLayer2/Buttons/FullScren" method="_on_button_down"]
