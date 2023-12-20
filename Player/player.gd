@@ -135,8 +135,6 @@ func _physics_process(delta: float) -> void:
 	update_animation(direction)
 
 func _on_punch_area_2d_area_entered(area: Area2D) -> void:
-	
-	print("enemy")
 	if area.is_in_group("enemy"):
 		area.get_parent().take_damage()
 

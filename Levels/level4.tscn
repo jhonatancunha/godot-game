@@ -346,31 +346,26 @@ scale = Vector2(1.5, 1.5)
 [node name="Enemy" parent="." instance=ExtResource("7_tdtt3")]
 position = Vector2(723, 384)
 scale = Vector2(1.72, 1.69711)
-collision_layer = 2
 collision_mask = 2
 
 [node name="Enemy2" parent="." instance=ExtResource("7_tdtt3")]
 position = Vector2(1549, 160)
 scale = Vector2(1.72, 1.69711)
-collision_layer = 2
 collision_mask = 2
 
 [node name="Enemy3" parent="." instance=ExtResource("7_tdtt3")]
 position = Vector2(2785, 372)
 scale = Vector2(1.72, 1.69711)
-collision_layer = 2
 collision_mask = 2
 
 [node name="Enemy4" parent="." instance=ExtResource("7_tdtt3")]
 position = Vector2(3423, 462)
 scale = Vector2(1.72, 1.69711)
-collision_layer = 2
 collision_mask = 2
 
 [node name="Enemy5" parent="." instance=ExtResource("7_tdtt3")]
 position = Vector2(4887, 388)
 scale = Vector2(1.72, 1.69711)
-collision_layer = 2
 collision_mask = 2
 
 [node name="SPIKES" type="Node2D" parent="."]

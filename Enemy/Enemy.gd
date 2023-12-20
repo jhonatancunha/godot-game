@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @export var speed: float = 100.0
 @export var maxHealth: int = 6
+@export var player: Player
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var sprite = $Sprite2D
@@ -77,8 +78,11 @@ func take_damage():
 	if health <= 0:
 		queue_free()
 	else:
-		position.x += knockback_distance * -direction
-
+		var player_position = player.position
+		if position.x > player_position.x:
+			position.x += knockback_distance
+		else: 
+			position.x -= knockback_distance
 
 func _on_attack_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("damage_area"):
