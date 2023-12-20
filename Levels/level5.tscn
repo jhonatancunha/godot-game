@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6egomahpawdw"]
+[gd_scene load_steps=21 format=3 uid="uid://c6egomahpawdw"]
 
 [ext_resource type="PackedScene" uid="uid://c3ilfe2qoeq7h" path="res://UI/MobileInput/ButtonA.tscn" id="1_bdqv4"]
 [ext_resource type="Script" path="res://Levels/level_settings.gd" id="1_l4tu0"]
@@ -12,6 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://btopemn7cld2t" path="res://ItemBox/item_box.tscn" id="9_oqwmy"]
 [ext_resource type="PackedScene" uid="uid://c6sj7ksv8ikef" path="res://Terrain/Portal/portal.tscn" id="11_nb4hp"]
 [ext_resource type="PackedScene" uid="uid://d038aa4nuh0dq" path="res://EnemyBoss/EnemyBoss.tscn" id="12_unsq8"]
+[ext_resource type="PackedScene" uid="uid://dxfmjk3a1rfvo" path="res://UI/MobileInput/Joystick.tscn" id="13_webgc"]
+[ext_resource type="Script" path="res://button_fullscreen.gd" id="14_tcf2c"]
+[ext_resource type="Script" path="res://Player/healthBar.gd" id="15_27qyg"]
+[ext_resource type="Script" path="res://Bullet/bulletBar.gd" id="16_g3o2c"]
+[ext_resource type="Script" path="res://UI/tryCount.gd" id="17_ea1t0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_igheu"]
 texture = ExtResource("3_kvtk4")
@@ -237,80 +242,6 @@ sources/2 = SubResource("TileSetAtlasSource_lmjku")
 [node name="World" type="Node2D"]
 script = ExtResource("1_l4tu0")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Buttons" type="Node2D" parent="CanvasLayer"]
-
-[node name="Shot" parent="CanvasLayer/Buttons" instance=ExtResource("1_bdqv4")]
-position = Vector2(1048, 672)
-button_action = "fire"
-
-[node name="AtirarLabel" type="Label" parent="CanvasLayer/Buttons/Shot"]
-offset_left = -8.0
-offset_top = -23.9999
-offset_right = 65.0
-offset_bottom = 2.00006
-text = "Atirar"
-
-[node name="Punch" parent="CanvasLayer/Buttons" instance=ExtResource("1_bdqv4")]
-position = Vector2(1208, 672)
-button_action = "punch"
-
-[node name="SocarLabel" type="Label" parent="CanvasLayer/Buttons/Punch"]
-offset_top = -24.0001
-offset_right = 73.0
-offset_bottom = 1.99994
-text = "Socar"
-
-[node name="Jump" parent="CanvasLayer/Buttons" instance=ExtResource("1_bdqv4")]
-position = Vector2(1128, 672)
-button_action = "jump"
-
-[node name="PularLabel" type="Label" parent="CanvasLayer/Buttons/Jump"]
-offset_top = -23.9999
-offset_right = 73.0
-offset_bottom = 2.00006
-text = "Pular"
-
-[node name="Right" parent="CanvasLayer/Buttons" instance=ExtResource("1_bdqv4")]
-position = Vector2(128, 664)
-button_action = "right"
-
-[node name="DireitaLabel" type="Label" parent="CanvasLayer/Buttons/Right"]
-offset_left = -8.0
-offset_top = -24.0
-offset_right = 45.0
-offset_bottom = 2.0
-text = "Direita"
-
-[node name="Left" parent="CanvasLayer/Buttons" instance=ExtResource("1_bdqv4")]
-position = Vector2(40, 664)
-button_action = "left"
-
-[node name="EsquerdaLabel" type="Label" parent="CanvasLayer/Buttons/Left"]
-offset_left = -24.0
-offset_top = -24.0
-offset_right = 49.0
-offset_bottom = 2.0
-text = "Esquerda"
-
-[node name="GUI" type="Node2D" parent="CanvasLayer"]
-position = Vector2(1, 29)
-
-[node name="LEVEL" type="Label" parent="CanvasLayer/GUI"]
-offset_left = 24.0
-offset_top = 16.0
-offset_right = 82.0
-offset_bottom = 42.0
-text = "Level: 1"
-
-[node name="HP" type="Label" parent="CanvasLayer/GUI"]
-offset_left = 24.0
-offset_top = 48.0
-offset_right = 82.0
-offset_bottom = 74.0
-text = "HP: 100"
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -496,3 +427,142 @@ scale = Vector2(2, 2)
 speed = 150.0
 player = NodePath("../Player")
 minFollowDistance = 300
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Buttons" type="Node2D" parent="CanvasLayer2"]
+
+[node name="Shot" parent="CanvasLayer2/Buttons" instance=ExtResource("1_bdqv4")]
+position = Vector2(1037, 627)
+scale = Vector2(2, 2)
+button_action = "fire"
+
+[node name="AtirarLabel" type="Label" parent="CanvasLayer2/Buttons/Shot"]
+offset_left = -8.0
+offset_top = -23.9999
+offset_right = 65.0
+offset_bottom = 2.00006
+text = "Atirar"
+metadata/_edit_use_anchors_ = true
+
+[node name="Punch" parent="CanvasLayer2/Buttons" instance=ExtResource("1_bdqv4")]
+position = Vector2(1166, 627)
+scale = Vector2(2, 2)
+button_action = "punch"
+
+[node name="SocarLabel" type="Label" parent="CanvasLayer2/Buttons/Punch"]
+offset_top = -24.0001
+offset_right = 73.0
+offset_bottom = 1.99994
+text = "Socar"
+metadata/_edit_use_anchors_ = true
+
+[node name="Jump" parent="CanvasLayer2/Buttons" instance=ExtResource("1_bdqv4")]
+position = Vector2(903, 627)
+scale = Vector2(2, 2)
+button_action = "jump"
+
+[node name="PularLabel" type="Label" parent="CanvasLayer2/Buttons/Jump"]
+offset_top = -23.9999
+offset_right = 73.0
+offset_bottom = 2.00006
+text = "Pular"
+metadata/_edit_use_anchors_ = true
+
+[node name="JoystickBase" parent="CanvasLayer2/Buttons" instance=ExtResource("13_webgc")]
+position = Vector2(22, 518)
+scale = Vector2(1.5, 1.5)
+action_right = "right"
+action_left = "left"
+
+[node name="FullScren" type="Button" parent="CanvasLayer2/Buttons"]
+offset_left = 1136.0
+offset_top = 16.0
+offset_right = 1256.0
+offset_bottom = 47.0
+text = "F4 (FullScreen)"
+flat = true
+script = ExtResource("14_tcf2c")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer2"]
+
+[node name="Sky" type="ParallaxLayer" parent="CanvasLayer2/ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer2/ParallaxBackground/Sky"]
+modulate = Color(0.996078, 0.611765, 0.603922, 1)
+position = Vector2(-456, -392)
+scale = Vector2(2, 1)
+texture = ExtResource("2_bxn7g")
+centered = false
+
+[node name="LEVEL" type="Node2D" parent="CanvasLayer2"]
+position = Vector2(0, 28)
+
+[node name="LEVEL" type="Label" parent="CanvasLayer2/LEVEL"]
+offset_left = 24.0
+offset_top = 17.0
+offset_right = 82.0
+offset_bottom = 43.0
+text = "Level: 3
+"
+
+[node name="HEALTH" type="Node2D" parent="CanvasLayer2"]
+position = Vector2(0, 32)
+
+[node name="HP" type="Label" parent="CanvasLayer2/HEALTH"]
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 82.0
+offset_bottom = 74.0
+text = "HP:"
+
+[node name="value" type="Label" parent="CanvasLayer2/HEALTH" node_paths=PackedStringArray("player")]
+offset_left = 64.0
+offset_top = 47.0
+offset_right = 122.0
+offset_bottom = 73.0
+text = "5
+"
+script = ExtResource("15_27qyg")
+player = NodePath("../../../Player")
+
+[node name="BULLETS" type="Node2D" parent="CanvasLayer2"]
+position = Vector2(0, 64)
+
+[node name="bullets" type="Label" parent="CanvasLayer2/BULLETS"]
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 82.0
+offset_bottom = 74.0
+text = "Munição:"
+
+[node name="value" type="Label" parent="CanvasLayer2/BULLETS" node_paths=PackedStringArray("player")]
+offset_left = 104.0
+offset_top = 48.0
+offset_right = 162.0
+offset_bottom = 74.0
+text = "5"
+script = ExtResource("16_g3o2c")
+player = NodePath("../../../Player")
+
+[node name="TENTATIVAS" type="Node2D" parent="CanvasLayer2"]
+position = Vector2(-2, -33)
+
+[node name="TENTATIVAS" type="Label" parent="CanvasLayer2/TENTATIVAS"]
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 190.0
+offset_bottom = 74.0
+text = "Tentativas Restantes:"
+
+[node name="value" type="Label" parent="CanvasLayer2/TENTATIVAS"]
+offset_left = 200.0
+offset_top = 48.0
+offset_right = 258.0
+offset_bottom = 74.0
+text = "3"
+script = ExtResource("17_ea1t0")
+
+[connection signal="button_down" from="CanvasLayer2/Buttons/FullScren" to="CanvasLayer2/Buttons/FullScren" method="_on_button_down"]

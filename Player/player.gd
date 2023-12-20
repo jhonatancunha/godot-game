@@ -10,7 +10,7 @@ signal bulletChanged
 @export var can_punch: bool = true
 @export var MAX_JUMPS: int = 2
 @export var MAX_HELTH: int = 3
-@export var INITIAL_BULLETS: int = 50
+@export var INITIAL_BULLETS: int = 15
 
 #FIRE
 @export var bullet_speed: float = 400

@@ -78,8 +78,7 @@ func take_damage():
 	if health <= 0:
 		queue_free()
 	else:
-		var player_position = player.position
-		if position.x > player_position.x:
+		if position.x > player.position.x:
 			position.x += knockback_distance
 		else: 
 			position.x -= knockback_distance
