@@ -409,14 +409,8 @@ position = Vector2(2752, 74)
 [node name="Area2D" parent="SPIKES7" instance=ExtResource("8_8a7ul")]
 position = Vector2(-2783, 450)
 
-[node name="Area2D2" parent="SPIKES7" instance=ExtResource("8_8a7ul")]
-position = Vector2(-2703, 385)
-
 [node name="Area2D3" parent="SPIKES7" instance=ExtResource("8_8a7ul")]
 position = Vector2(-2623, 320)
-
-[node name="Area2D4" parent="SPIKES7" instance=ExtResource("8_8a7ul")]
-position = Vector2(-2543, 256)
 
 [node name="Area2D5" parent="SPIKES7" instance=ExtResource("8_8a7ul")]
 position = Vector2(-2463, 191)
